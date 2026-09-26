@@ -1,0 +1,27 @@
+name: Documentation correction
+description: Report a factual error, broken link, or stale number in the design docs
+title: "[Correction]: "
+labels: ["documentation", "bug"]
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: File and section (e.g. docs/product/roadmap.md#the-four-releases)
+      placeholder: docs/...
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong
+      description: What is incorrect, broken, or out of date?
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested fix
+      description: What should it say instead? Leave blank if you're not sure.
+    validations:
+      required: false

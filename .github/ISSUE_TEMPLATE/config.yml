@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Open Questions backlog
+    url: https://github.com/EstuaryHub/estuary-hub-design/blob/main/docs/decisions/open-questions.md
+    about: Check whether your question is already tracked before opening a new one
+  - name: Discovery Interview Guide
+    url: https://github.com/EstuaryHub/estuary-hub-design/blob/main/docs/product/discovery-interview-guide.md
+    about: Read before recording a discovery finding

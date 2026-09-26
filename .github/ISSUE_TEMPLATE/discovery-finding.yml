@@ -1,0 +1,24 @@
+name: Discovery interview finding
+description: Capture a distilled finding from a discovery conversation
+title: "[Discovery]: "
+labels: ["discovery"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Raw interview notes never enter this repo. Summarize the finding at a level you'd be
+        comfortable sharing publicly, per the discovery interview guide.
+  - type: textarea
+    id: finding
+    attributes:
+      label: Finding
+      description: What did you learn, distilled and anonymized as needed?
+    validations:
+      required: true
+  - type: textarea
+    id: implication
+    attributes:
+      label: Implication
+      description: Which open question or doc should this feed into?
+    validations:
+      required: false
