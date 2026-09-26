@@ -1,11 +1,13 @@
-# Estuary Hub — Application Design
+# Estuary Hub — Application Architecture
 
-Sep 26, 2026 · @joseph · Sanctioned rebuild of estuaryhub.com · For the development team
+Sep 26, 2026 · @joseph · Sanctioned rebuild of estuaryhub.com · For the Estuary Technology team
 
 ## Related Records
 
-- [Open Questions](04-open-questions.md)
-- [Decision Register](decisions/README.md)
+- [Open Questions](../decisions/open-questions.md)
+- [Decision Register](../decisions/README.md)
+- [Requirements by Release](requirements-by-release.md) — what each release must guarantee
+- [Roadmap](../product/roadmap.md) — how the product is split into Static MVP, Static V1, App MVP and App V1
 
 ## Purpose and scope
 
@@ -23,7 +25,7 @@ Five structural gaps define the scope. Each maps to a feature area below.
 | 4 | ELSNet intake is a form submission with no pipeline | Four-stage application pipeline with status visible to applicant and reviewer |
 | 5 | Nothing is measurable | Admin counts: active groups, growth by region, stale applications |
 
-The release described here is the **core release**. Community features — forum, groups, chat, blog — are deliberately excluded and covered in the final section.
+This document describes the **end state after App V1**: the full application behind the public site. The [Roadmap](../product/roadmap.md) splits it into four releases (Static MVP, Static V1, App MVP, App V1), and [Requirements by Release](requirements-by-release.md) says which parts of this design each release needs. Where the two disagree on what ships when, the roadmap wins; this document owns how it works. Community features — forum, groups, chat, blog — are deliberately excluded and covered in the final section.
 
 ## Roles and personas
 
@@ -242,7 +244,7 @@ Splitting **profile** from **member** is what makes per-field visibility possibl
 
 One deployable, with hard internal boundaries. This is the decision that makes plugins possible later without committing to a plugin API now.
 
-The instinct is to build an extension system up front so community features drop in cleanly. That reliably freezes the wrong abstraction: an extension surface published before there are extensions is fixed in place by its first consumer, and the project spends years unable to change it. What is needed in the core release is the **seam**, not the system.
+The instinct is to build an extension system up front so community features drop in cleanly. That reliably freezes the wrong abstraction: an extension surface published before there are extensions is fixed in place by its first consumer, and the project spends years unable to change it. What is needed in the App V1 is the **seam**, not the system.
 
 | Module | Owns | Publishes events |
 | --- | --- | --- |
@@ -275,7 +277,7 @@ For group detail pages there is a related choice: pre-render one page per publis
 
 ## Public API
 
-The extension point that costs nothing to commit to and serves the most consumers. Versioned under `/api/v1`, described by OpenAPI, read-only in the core release.
+The extension point that costs nothing to commit to and serves the most consumers. Versioned under `/api/v1`, described by OpenAPI, read-only in the App V1.
 
 Note that this is **not** how the site's own directory reads data — that comes from the static artifact described above. The API exists for integrations: another community's site embedding a group finder, a partner listing nearby groups, a future plugin. It therefore carries no load from ordinary visitors, which is why anonymous rate limits can be strict without hurting anyone.
 
@@ -304,7 +306,7 @@ Write endpoints beyond the contact relay wait until someone has a concrete use f
 | Browser support | Current Chrome, Safari, Firefox and Edge, plus iOS and Android Safari or Chrome two versions back |
 | Internationalisation | Interface strings externalised from the first commit. At least one group operates in German today, and the leader list spans four continents |
 
-Accessibility and internationalisation are the two that get retrofitted expensively if they are not designed in from Phase 1. Both are cheap in the first week.
+Accessibility and internationalisation are the two that get retrofitted expensively if they are not designed in from the Static MVP. Both are cheap in the first week.
 
 ## Out of scope for v1
 

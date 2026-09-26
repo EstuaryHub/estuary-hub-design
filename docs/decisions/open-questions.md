@@ -1,25 +1,82 @@
 # Estuary Hub — Open Questions
 
-Sep 26, 2026 · @joseph · Companion to the Application Design · For the board and the development team
+Sep 26, 2026 · @joseph · Decision backlog · For product owners, the board and the Estuary Technology team
 
 ## Related Records
 
-- [Decision Register](decisions/README.md)
-- [Delivery Checklist](decisions/delivery-checklist.md)
+- [Decision Register](README.md)
+- [Delivery Checklist](delivery-checklist.md)
 
 ## How to use this document
 
 Every question below has a recommended default. **If nobody objects to a default, that is the answer** — the point of this document is to surface decisions, not to stall on them.
 
-Questions are sorted by who decides. A board question is one where the organisation carries the consequence: licensing an asset, stewarding other people's contact details, setting a scope boundary with ethical weight. A development question is one the team can settle among themselves and record in an architecture decision note.
+Questions are sorted by who decides. A product question (P) is about what the product does and for whom, and is settled by Estuary leadership and community members as product owners. A board question (B) is one where the organisation carries the consequence: licensing an asset, stewarding other people's contact details, setting a scope boundary with ethical weight. A development question (D) is one the Estuary Technology team settles among themselves and records in an architecture decision note.
 
 Comment directly on any question in this document rather than replying by email — that keeps the answer attached to the question.
 
 | Priority | Meaning |
 | --- | --- |
-| Blocking | Phase 1 cannot start, or cannot start correctly, until this is answered |
-| Pre-launch | Needed before go-live, not before building |
-| Deferred | Can wait until after the core release, but should be recorded as deliberately deferred |
+| Blocking | The release named in the index below cannot start, or cannot start correctly, until this is answered |
+| Pre-launch | Needed before that release goes live, not before building it |
+| Deferred | Can wait, but should be recorded as deliberately deferred |
+
+The four releases are **Static MVP**, **Static V1**, **App MVP** and **App V1**, described in the [Roadmap](../product/roadmap.md#the-four-releases).
+
+## Question index
+
+The earliest release each question holds up. Questions for Static MVP come first because that release ships first.
+
+| Holds up | Product owners | Board | Technology team | Outside review / facts |
+| --- | --- | --- | --- | --- |
+| Static MVP build | P1 | B1, B2, B3 (light-duty maintainer), B8 | D3, D4, D7, D8, D11, D12 | X3 |
+| Static MVP launch | P3, P5 | B4, B5, B7 | — | X1, X2, F6 |
+| Static V1 | P2, P4 | — | — | F7 |
+| App MVP build | P6 | B3 (long-term maintainer) | D1, D2, D5, D10 | F1, F2, F3 |
+| App MVP launch | — | — | D6, D9 | — |
+| App V1 | P7 | B6 | — | — |
+
+## For the product owners
+
+Settled by Estuary leadership and community members. Record each outcome in the [Decision Register](README.md).
+
+### P1. Does the Static MVP ship first and on its own? — Blocking
+
+The public site can launch with no sign-in, no database and no dependency on the application. That gets strangers a working directory soonest, tests whether the organisation can keep a site running before taking on the bigger commitment, and produces real numbers to size the application against.
+
+*Recommended default: yes. Static MVP ships first; Static V1 and App MVP follow in parallel; App V1 comes last.*
+
+### P2. Should trained leaders without a group be listed? — Pre-Static V1
+
+This is the second option offered when a search finds nothing nearby, and it is how many new groups start. It needs each leader's permission first ([B4](#b4-re-consent-or-migrate-the-contact-list-as-it-stands--pre-launch)).
+
+*Recommended default: yes, in Static V1, showing only leaders who opt in during re-consent outreach. A shorter list with permission is better than a longer one without.*
+
+### P3. How quickly will administrators act on listing requests? — Pre-Static MVP launch
+
+Until App MVP, every listing change goes through an administrator. The request form tells the leader what to expect, so the promise has to be one we can keep.
+
+*Recommended default: within seven days, with two named administrators sharing the inbox ([B7](#b7-who-moderates-and-against-what-standard--pre-launch)). If requests regularly take longer, that is evidence App MVP is needed sooner.*
+
+### P4. What happens to "I'm interested" messages before App V1? — Pre-Static V1
+
+Each message holds a person's email address and rough location, and until App V1 there is nowhere to store them properly.
+
+*Recommended default: they go to the administrators' inbox, are answered by hand, and are deleted after a stated period. They move into App V1 only if the person agrees again.*
+
+### P5. What must be true before the Wix directory is switched off? — Pre-Static MVP launch
+
+*Recommended default:* every current published group is on the new site or deliberately retired; every old link redirects; re-consent outreach has run and its grace period has started ([B4](#b4-re-consent-or-migrate-the-contact-list-as-it-stands--pre-launch)); the data-protection review is complete ([X1](#x1-data-protection-for-the-international-contact-list--blocking-for-launch-not-for-building)); the accessibility check has passed; two named administrators are in place; and the Wix member area no longer displays leader email addresses.
+
+### P6. What must be true before App MVP starts? — Pre-App MVP
+
+*Recommended default:* Static MVP has been live at least one month; a long-term maintainer is named for the application ([B3](#b3-who-maintains-this-after-launch--blocking)); [F2](#facts-somebody-needs-to-go-and-find) is answered; and the Static MVP counts show real administrator workload. If listing requests turn out to be rare, App MVP can start with the ELSNet pipeline alone.
+
+### P7. Is the member finder worth rebuilding? — Pre-App V1
+
+The Wix member area has a radius search over members. Rebuilding it with per-field privacy is real work.
+
+*Recommended default: check how much the Wix version is used before App V1 is scoped. If it is barely used, retire it with the Wix member area and do not rebuild it.*
 
 ## For the board
 
@@ -41,7 +98,7 @@ The GitHub organisation and the Azure subscription must belong to the nonprofit,
 
 A custom application with no named maintainer is worse than the Wix site it replaced. The Wix site will still be running in 2030; a bespoke application with an expired certificate will not.
 
-*Recommended default: name a maintainer before Phase 1 begins. If no name emerges, the honest alternative is improving the existing Wix site in place — moving the two directories into Wix CMS collections closes the two biggest gaps for a fraction of the effort, and any volunteer can keep it running.*
+*Recommended default: name a light-duty maintainer before the Static MVP build begins, and a long-term maintainer before App MVP begins. If no name emerges, the honest alternative is improving the existing Wix site in place — moving the two directories into Wix CMS collections closes the two biggest gaps for a fraction of the effort, and any volunteer can keep it running.*
 
 ### B4. Re-consent, or migrate the contact list as it stands? — Pre-launch
 
@@ -151,7 +208,7 @@ Two idle databases cost as much as one busy one.
 
 A private endpoint is the stronger security posture and a real line item — it pulls the Container Apps environment into a virtual network, which adds charges.
 
-*Recommended default: firewall rules plus managed identity for the core release, with the private endpoint priced and revisited once the budget has a year of real data behind it. Record it as a conscious trade, not an oversight.*
+*Recommended default: firewall rules plus managed identity for App MVP and App V1, with the private endpoint priced and revisited once the budget has a year of real data behind it. Record it as a conscious trade, not an oversight.*
 
 ### D7. What does the synthetic seed dataset look like? — Blocking
 
@@ -187,6 +244,24 @@ The window matters for one specific human reason: a leader who corrects a wrong 
 
 That last clause is the important one — it decouples the leader's confidence from the publish pipeline entirely.
 
+### D11. Where does the directory live before the application exists? — Blocking for Static MVP
+
+New, and a consequence of [P1](#p1-does-the-static-mvp-ship-first-and-on-its-own--blocking). Until App MVP there is no database, but an administrator still has to publish listing changes without developer help, with review and history ([requirements SM5, SM6](../technical/requirements-by-release.md#static-mvp)).
+
+| Option | Review and history | Administrator effort | Moving to App MVP |
+| --- | --- | --- | --- |
+| Public fields as a data file in the repository, edited through a git-backed CMS | Free: pull requests and git history | Low once the CMS is set up | Straightforward one-time import |
+| Hand-edited data file in the repository | Free | Needs someone comfortable with GitHub | Straightforward |
+| A spreadsheet the build reads from | None built in | Lowest | Import, but no history comes with it |
+
+*Recommended default: public fields in the repository behind a git-backed CMS.* This is the "git as source of truth" option from [D1](#d1-what-stores-the-data--blocking), which suits the static releases because they hold no private data. Leader contact addresses are the exception and go to [D12](#d12-how-does-the-contact-relay-work-before-the-application-exists--blocking-for-static-mvp).
+
+### D12. How does the contact relay work before the application exists? — Blocking for Static MVP
+
+The contact, listing-request, ELSNet and interest forms need something that receives a submission, looks up a private recipient and sends email, without the leader's address ever reaching the browser or the public repository.
+
+*Recommended default: a single small serverless function alongside the static site. It keeps the slug-to-address lookup in a private secret store, sends through the transactional email service in the [platform plan](../technical/azure-platform-and-costs.md#reference-architecture), and applies rate limits and a spam check. App MVP later takes over the same endpoints ([the seam](../technical/requirements-by-release.md#the-seam-between-the-two-products)).*
+
 ## Needs outside expertise
 
 Three questions where neither the board nor the developers should answer from general impression. Each needs someone qualified.
@@ -197,7 +272,7 @@ The leader directory includes people in Canada, Europe and Australia. Republishi
 
 **What to ask:** what lawful basis covers publishing a volunteer leader's contact details; what the retention, access and deletion obligations are; whether a privacy notice and a data processing record are required; and whether hosting region matters.
 
-*This does not block Phase 1. It blocks launching with the existing list imported wholesale. Design for per-field visibility, consent events and deletion from the start so whatever the answer is, compliance is cheap rather than retrofitted.*
+*This does not block building. It blocks launching with the existing list imported wholesale. Design for per-field visibility, consent events and deletion from the start so whatever the answer is, compliance is cheap rather than retrofitted.*
 
 ### X2. Accessibility obligations — Pre-launch
 
@@ -231,13 +306,14 @@ F1 and F2 are the two worth chasing first. F1 sizes the migration; F2 decides wh
 
 ## The critical path
 
-Of everything above, four answers unblock the rest — and none of them needs a developer.
+Of everything above, five answers unblock the rest — and none of them needs a developer.
 
-1. **Who maintains this after launch (B3).** Answer this first, because a no changes the project rather than delaying it. If no name emerges, improving the Wix site in place is the honest alternative and everything below becomes moot.
-2. **Who owns the accounts (B2).** The grants cannot be applied for until the nonprofit owns the GitHub organisation and the Azure subscription, and the Azure credits expire 90 days after issue.
-3. **Which licence (B1).** The repository cannot be made public without it, and the repository is public from the first commit.
-4. **Are Blog, Groups and Chat in use (F2).** Decides whether the scope is a directory or a platform, which changes every estimate downstream.
+1. **Does the Static MVP ship first and on its own (P1).** If yes, the questions below are needed for the Static MVP, and the heavier commitments (a long-term maintainer, the data store) move back to App MVP.
+2. **Who maintains this after launch (B3).** Answer this first, because a no changes the project rather than delaying it. Static MVP needs only a light-duty maintainer; App MVP needs a committed one. If no name emerges even for the Static MVP, improving the Wix site in place is the honest alternative and everything below becomes moot.
+3. **Who owns the accounts (B2).** The grants cannot be applied for until the nonprofit owns the GitHub organisation and the Azure subscription, and the Azure credits expire 90 days after issue.
+4. **Which licence (B1).** The repository cannot be made public without it, and the repository is public from the first commit.
+5. **Are Blog, Groups and Chat in use (F2).** Decides whether the scope is a directory or a platform, which changes every estimate downstream.
 
-Everything else can be settled while Phase 1 is underway.
+Everything else can be settled while the Static MVP is being built.
 
 The one worth dwelling on is the first. A custom application is the right call only if there is a named person who will own it in three years. If the honest answer is "me, when I have time," a bespoke application is a liability dressed as an upgrade — and there is no shame in the smaller version that a volunteer can keep running. Deciding that deliberately is a better outcome than discovering it in month eight.

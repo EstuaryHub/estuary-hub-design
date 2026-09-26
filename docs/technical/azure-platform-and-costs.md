@@ -1,11 +1,12 @@
 # Estuary Hub — Azure Platform and Costs
 
-Sep 26, 2026 · @joseph · Companion to the Application Design · For the development team and the treasurer
+Sep 26, 2026 · @joseph · Companion to the Application Architecture · For the Estuary Technology team and the treasurer
 
 ## Related Records
 
-- [Open Questions](04-open-questions.md)
-- [Decision Register](decisions/README.md)
+- [Open Questions](../decisions/open-questions.md)
+- [Decision Register](../decisions/README.md)
+- [Requirements by Release](requirements-by-release.md)
 
 ## The budget
 
@@ -15,14 +16,14 @@ Four terms of the grant shape the design more than the dollar figure does.
 
 | Term | Consequence |
 | --- | --- |
-| Credits must be activated within 90 days of issue | Start the clock deliberately, in Phase 0, not the moment someone gets curious |
+| Credits must be activated within 90 days of issue | Start the clock deliberately, during setup, not the moment someone gets curious |
 | One-year term, renewed by responding to renewal emails | A named person owns that renewal, with a calendar reminder. Missing it converts the subscription to pay-as-you-go |
 | Credits do not roll over | No banking an underspend for a future year |
 | First-party Azure services only — no reserved instances, no third-party marketplace, **no support plans** | Production incidents are the team's own problem. This is why the plan has a runbook rather than a support contract |
 
 GitHub is separate and also free: verified 501(c)(3) organisations get the **GitHub Team plan at no cost**, or 25% off Enterprise Cloud. Worth knowing that public repositories already get Actions on standard runners free, so for an open-source project the Team plan mainly buys private repos and organisation controls rather than CI minutes.
 
-Both grants require validated nonprofit status, so the validation is the real long pole in Phase 0, not the applications themselves.
+Both grants require validated nonprofit status, so the validation is the real long pole during setup, not the applications themselves.
 
 ## Reference architecture
 
@@ -196,11 +197,11 @@ Five specific ways a $2,000 grant gets drained. None of them is application traf
 
 | Guardrail | Set up in |
 | --- | --- |
-| Daily cap on Log Analytics ingestion | Phase 1, before first deploy |
-| Budget alerts at 50% and 80% of the annual grant | Phase 1 |
-| Auto-stop for non-production databases | Phase 1 |
-| Alert on PostgreSQL CPU credits remaining | Phase 1 |
-| Calendar reminder for grant renewal, owned by a named person | Phase 0 |
+| Daily cap on Log Analytics ingestion | Before the first deploy of the Static MVP |
+| Budget alerts at 50% and 80% of the annual grant | Before the first deploy of the Static MVP |
+| Auto-stop for non-production databases | App MVP, when the database arrives |
+| Alert on PostgreSQL CPU credits remaining | App MVP |
+| Calendar reminder for grant renewal, owned by a named person | Setup, before any build |
 
 All five are cheap to set up in the first week and expensive to retrofit after an incident.
 

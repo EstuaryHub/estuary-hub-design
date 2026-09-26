@@ -1,6 +1,6 @@
 # Decision Register
 
-This register records decisions once their owner has reached an outcome. Detailed rationale stays in the linked design record; unresolved work remains in [Open Questions](../04-open-questions.md).
+This register records decisions once their owner has reached an outcome. Detailed rationale stays in the linked design record; unresolved work remains in [Open Questions](open-questions.md).
 
 ## How To Record A Decision
 
@@ -17,6 +17,6 @@ Keep an entry in this section until qualified advice is recorded and an accounta
 
 | ID  | Review Needed                                             | Owner | Status | Evidence | Source                                                                                                                                |
 | --- | --------------------------------------------------------- | ----- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| X1  | Data-protection review for the international contact list | Board | Open   | —        | [Open Questions](../04-open-questions.md#x1-data-protection-for-the-international-contact-list--blocking-for-launch-not-for-building) |
-| X2  | Accessibility-obligations review                          | Board | Open   | —        | [Open Questions](../04-open-questions.md#x2-accessibility-obligations--pre-launch)                                                    |
-| X3  | Licence review                                            | Board | Open   | —        | [Open Questions](../04-open-questions.md#x3-licence-review--blocking)                                                                 |
+| X1  | Data-protection review for the international contact list | Board | Open   | —        | [Open Questions](open-questions.md#x1-data-protection-for-the-international-contact-list--blocking-for-launch-not-for-building) |
+| X2  | Accessibility-obligations review                          | Board | Open   | —        | [Open Questions](open-questions.md#x2-accessibility-obligations--pre-launch)                                                    |
+| X3  | Licence review                                            | Board | Open   | —        | [Open Questions](open-questions.md#x3-licence-review--blocking)                                                                 |

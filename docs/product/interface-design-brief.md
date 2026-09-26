@@ -1,11 +1,12 @@
 # Estuary Hub — Interface Design Brief
 
-Sep 26, 2026 · @joseph · Companion to the Application Design · For whoever designs the interface
+Sep 26, 2026 · @joseph · Companion to the Roadmap · For whoever designs the interface
 
 ## Related Records
 
-- [Open Questions](04-open-questions.md)
-- [Decision Register](decisions/README.md)
+- [Open Questions](../decisions/open-questions.md)
+- [Decision Register](../decisions/README.md)
+- [Roadmap](roadmap.md) — the four releases this brief is delivered across
 
 ## The design problem
 
@@ -222,16 +223,17 @@ Design runs ahead of the corresponding build phase, not alongside it. The sequen
 
 | Phase | Deliverable | Needed before |
 | --- | --- | --- |
-| A | Visual direction: palette with verified contrast in both themes, type pairing, two sample screens | Any interface code |
-| B | Design tokens as a real file the developers import — colour, spacing, type scale, radii, shadows | Foundations build |
-| C | Search, results and empty state, at three breakpoints | Directory build |
-| D | Group detail and contact relay | Directory build |
-| E | Profile, visibility controls, leader dashboard, group edit | Member area build |
-| F | Admin queue and application pipeline | Admin build |
-| G | Accessibility pass across everything, then a component documentation page | Launch |
+| A | Visual direction: palette with verified contrast in both themes, type pairing, two sample screens | Static MVP build |
+| B | Design tokens as a real file the developers import — colour, spacing, type scale, radii, shadows | Static MVP build |
+| C | Search, results and empty state, at three breakpoints | Static MVP build |
+| D | Group detail and contact relay | Static MVP build |
+| E | Leader directory, interest form, language switcher, confirmed and paused states | Static V1 build |
+| F | Sign-in, claim, leader dashboard, group edit, ELSNet status, admin queue and pipeline | App MVP build |
+| G | Profile, visibility controls, member finder, reports | App V1 build |
+| H | Accessibility pass across the release, then update the component documentation page | Each launch |
 
 **Handoff.** Tokens ship as code, not as a screenshot of a palette — a JSON or CSS custom-property file the developers import directly, so a colour is never transcribed by hand. Each screen comes with its states drawn, not just the happy path: loading, empty, error, and the long-content case where a group has a 400-character directions field.
 
 **What does not need designing.** Admin screens beyond the queue can use a plain component library; they are internal, used by two or three people, and design effort there is better spent on the newcomer path.
 
-**If there is no designer.** This brief is written so a developer with reasonable taste can execute it. In that case, do Phase A and B properly — a validated palette and a token file — and let the rest follow the component inventory. The failure mode to avoid is styling each screen as it is built, which produces a site that looks assembled rather than designed.
+**If there is no designer.** This brief is written so a developer with reasonable taste can execute it. In that case, do Phases A and B properly — a validated palette and a token file — and let the rest follow the component inventory. The failure mode to avoid is styling each screen as it is built, which produces a site that looks assembled rather than designed.
