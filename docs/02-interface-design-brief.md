@@ -2,6 +2,11 @@
 
 Sep 26, 2026 · @joseph · Companion to the Application Design · For whoever designs the interface
 
+## Related Records
+
+- [Open Questions](04-open-questions.md)
+- [Decision Register](decisions/README.md)
+
 ## The design problem
 
 Someone lonely, curious, or recently unmoored is deciding whether to walk into a room of strangers and talk about what they believe. The interface has about forty seconds to make that feel possible rather than exposing.

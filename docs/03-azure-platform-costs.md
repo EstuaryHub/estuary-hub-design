@@ -2,6 +2,11 @@
 
 Sep 26, 2026 · @joseph · Companion to the Application Design · For the development team and the treasurer
 
+## Related Records
+
+- [Open Questions](04-open-questions.md)
+- [Decision Register](decisions/README.md)
+
 ## The budget
 
 The Azure nonprofit grant is **$2,000 in sponsorship credits per year** — about $167 a month. The architecture below fits inside it with room to spare, and the database is the line item that decides whether it stays that way.

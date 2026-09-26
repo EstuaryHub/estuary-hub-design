@@ -2,6 +2,11 @@
 
 Sep 26, 2026 · @joseph · Sanctioned rebuild of estuaryhub.com · For the development team
 
+## Related Records
+
+- [Open Questions](04-open-questions.md)
+- [Decision Register](decisions/README.md)
+
 ## Purpose and scope
 
 Estuary Hub exists to answer one question a stranger asks: is there an estuary conversation near me, and who do I talk to? The current Wix site cannot answer it. Fifty-four groups sit in a flat alphabetical list with no search, no filter and no map, so a visitor in Grand Rapids reads all fifty-four.

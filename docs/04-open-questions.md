@@ -2,6 +2,11 @@
 
 Sep 26, 2026 · @joseph · Companion to the Application Design · For the board and the development team
 
+## Related Records
+
+- [Decision Register](decisions/README.md)
+- [Delivery Checklist](decisions/delivery-checklist.md)
+
 ## How to use this document
 
 Every question below has a recommended default. **If nobody objects to a default, that is the answer** — the point of this document is to surface decisions, not to stall on them.
