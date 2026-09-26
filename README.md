@@ -24,6 +24,8 @@ To start the **Static MVP build**, these must be settled:
 3. The GitHub organisation and Azure subscription owned by the nonprofit, with two named owners each ([B2](docs/decisions/open-questions.md#b2-who-owns-the-accounts--blocking))
 4. The licence ([B1](docs/decisions/open-questions.md#b1-which-licence--blocking))
 
+Before that, the product owners need a review channel they can use ([P8](docs/decisions/open-questions.md#p8-how-will-product-owners-review-and-comment--blocking-for-review)), and five short discovery conversations should test the plan's riskiest assumptions ([interview guide](docs/product/discovery-interview-guide.md)).
+
 The [question index](docs/decisions/open-questions.md#question-index) shows what each later release is waiting on.
 
 ## Who owns what
@@ -42,6 +44,7 @@ The [question index](docs/decisions/open-questions.md#question-index) shows what
 2. [Public Site](docs/product/static-site.md): Static MVP and Static V1
 3. [Member and Admin Application](docs/product/application.md): App MVP and App V1
 4. [Open Questions: for the product owners](docs/decisions/open-questions.md#for-the-product-owners)
+5. [Discovery Interview Guide](docs/product/discovery-interview-guide.md): five conversations to hold before the build starts
 
 **Board:** [Open Questions](docs/decisions/open-questions.md#for-the-board), then the [Decision Register](docs/decisions/README.md) and [Delivery Checklist](docs/decisions/delivery-checklist.md).
 
@@ -59,9 +62,10 @@ The [question index](docs/decisions/open-questions.md#question-index) shows what
 ```text
 docs/
   product/                        owned by the product owners
-    roadmap.md                    the four releases, their order, and the gaps each closes
-    static-site.md                Static MVP and Static V1 functions (S1–S17)
-    application.md                App MVP and App V1 functions (A1–A17)
+    roadmap.md                    releases, order, success targets, launch comms, support model
+    static-site.md                Static MVP and Static V1 functions (S1–S18)
+    application.md                App MVP and App V1 functions (A1–A18)
+    discovery-interview-guide.md  five conversations to test the riskiest assumptions
     interface-design-brief.md     experience, brand, accessibility, design deliverables
   technical/                      owned by the Estuary Technology team
     requirements-by-release.md    guarantees per release (G, SM, SV, AM, AV) and the seam contract

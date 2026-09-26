@@ -62,6 +62,7 @@ Leaders set the **forgiveness** bar: someone returning after eight months must s
 | A8 | ELSNet pipeline | Admin | App MVP | Must | Coordinator's inbox |
 | A9 | Export and change history | Admin | App MVP | Must | — |
 | A10 | Your data: download or delete | Everyone signed in | App MVP | Must | — |
+| A18 | Hand over or close a group | Leader | App MVP | Must | S9 handover option |
 | A11 | Your profile and who sees it | Member | App V1 | Must | Wix profile |
 | A12 | Find members near you | Member | App V1 | Should | Wix member search |
 | A13 | Stale listing review | Admin | App V1 | Must | Manual tracking |
@@ -117,7 +118,7 @@ The applicant fills in the application once, signed in, and can then see which o
 
 ### A7. Review queue
 
-Everything waiting for an administrator, in one list: new groups, changes needing approval, and anything reported. Each item shows what was submitted, what changed compared with the live listing, and who sent it. There are three actions: **approve**, **send back with a note**, or **reject**. Each has a keyboard shortcut.
+Everything waiting for an administrator, in one list: new groups, changes needing approval, and problems or concerns reported by visitors (S18). Each item shows what was submitted, what changed compared with the live listing, and who sent it. There are three actions: **approve**, **send back with a note**, or **reject**. Each has a keyboard shortcut.
 
 ### A8. ELSNet pipeline
 
@@ -131,6 +132,10 @@ The four stages, tracked. An administrator moves each application forward, and e
 ### A10. Your data: download or delete
 
 Any signed-in person can download what is held about them and ask for it to be deleted. Deleting removes them from every public listing. The exact obligations follow [X1](../decisions/open-questions.md#x1-data-protection-for-the-international-contact-list--blocking-for-launch-not-for-building).
+
+### A18. Hand over or close a group
+
+Groups end and leaders move on. A leader can hand a group to someone else, who must accept before it becomes theirs, or close it, which marks it paused with a short public note instead of deleting its page. If a leader leaves without doing either, an administrator can do it for them, and the stale review (A13) is how that gets noticed. Every handover is recorded in the change history (A9).
 
 ### What changes when App MVP launches
 

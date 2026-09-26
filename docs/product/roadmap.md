@@ -22,7 +22,7 @@ We are asking product owners to decide three things:
 
 1. **The release order.** The public site's MVP ships first and on its own, with no dependency on the application ([P1](../decisions/open-questions.md#p1-does-the-static-mvp-ship-first-and-on-its-own--blocking)).
 2. **What is in each release.** The function lists are in [Public Site](static-site.md#functions-by-release) and [Application](application.md#functions-by-release). Move anything you think is in the wrong release.
-3. **The product questions P2–P7.** Each has a recommended answer in [Open Questions](../decisions/open-questions.md#for-the-product-owners), and **if nobody objects, the recommendation stands.**
+3. **The product questions P2–P10.** Each has a recommended answer in [Open Questions](../decisions/open-questions.md#for-the-product-owners), and **if nobody objects, the recommendation stands.**
 
 Technology choices belong to the Estuary Technology team. The product documents say what each release must do. [Requirements by Release](../technical/requirements-by-release.md) turns that into what the technology must guarantee, and leaves the choice of tools to the team.
 
@@ -120,6 +120,47 @@ A dash means no change from the column to its left. The Technology team's versio
 
 The Wix member area stays in use until App V1. **It must stop displaying leader email addresses when Static MVP launches.** Otherwise the new site's privacy promise means nothing.
 
+Running both sites costs money until App V1 retires Wix. The Wix renewal date ([F8](../decisions/open-questions.md#facts-somebody-needs-to-go-and-find)) is a natural deadline to plan against. Before anything on Wix is switched off, today's traffic and contact numbers must be captured as the baseline for the success targets ([F4](../decisions/open-questions.md#facts-somebody-needs-to-go-and-find)).
+
+## How we'll know it's working
+
+Each release has a small set of targets, measured a fixed time after launch. The proposed targets are in [P9](../decisions/open-questions.md#p9-what-does-success-look-like-for-each-release--blocking-for-static-mvp-build). The one that matters most is the **App MVP claim rate**: whether three in four active groups are claimed by their leaders within 90 days. The whole application rests on that assumption, and nobody has tested it yet.
+
+Three months after Static MVP launches, product owners review the numbers and choose one of three paths ([P10](../decisions/open-questions.md#p10-what-if-the-static-mvp-falls-short--pre-app-mvp)): start App MVP, stop at the static releases, or return to improving Wix.
+
+Before any of this is built, five short conversations with the people the product is for test the plan's riskiest assumptions. The [discovery interview guide](discovery-interview-guide.md) covers who to talk to and what to ask.
+
+## Launch communications
+
+The people most affected by Static MVP are leaders, whose email addresses come off the site and whose messages now arrive through a form. They should hear it from us before launch day.
+
+| When | Who hears | What they are told | From |
+| --- | --- | --- | --- |
+| During the Static MVP build | Every listed leader | The re-consent request: what will be shown about them, what will not, and that their email address is coming off the site ([B4](../decisions/open-questions.md#b4-re-consent-or-migrate-the-contact-list-as-it-stands--pre-launch)) | Content owner |
+| Two weeks before launch | Leaders who replied | The launch date, how contact messages will reach them, and how to request a change | Content owner |
+| At launch | Members and the wider community | The new site, what it does, and that old links still work | Content owner |
+| One month after launch | Leaders | A short check that messages are arriving, plus the baseline question for [F4](../decisions/open-questions.md#facts-somebody-needs-to-go-and-find) | Support lead |
+| Before App MVP launch | Leaders | Their invitation to claim their listing ([A2](application.md#a2-claim-your-listing)), sent in small batches so problems surface early | Content owner |
+| Before App V1 launch | Wix members | The member area is moving, and what happens to their profile | Content owner |
+
+Roles are named under [B10](../decisions/open-questions.md#b10-who-owns-content-design-and-support--blocking-for-static-mvp-build).
+
+## Running it after launch
+
+Every release creates work that someone has to do. This is who does it, subject to the names recorded under [B10](../decisions/open-questions.md#b10-who-owns-content-design-and-support--blocking-for-static-mvp-build) and [B7](../decisions/open-questions.md#b7-who-moderates-and-against-what-standard--pre-launch).
+
+| Situation | Handled by | Promised response |
+| --- | --- | --- |
+| Listing change, new group, handover or closure request | Administrators | Within the time set in [P3](../decisions/open-questions.md#p3-how-quickly-will-administrators-act-on-listing-requests--pre-static-mvp-launch) |
+| A visitor reports a wrong listing or raises a concern about a group (S18) | Administrators | Acknowledged within 7 days; concerns about safety the same week |
+| "My message never arrived" | Support lead | Within 7 days |
+| Spam or abuse through the contact form | Administrators, with the maintainer if limits need changing | Within 2 days |
+| The site is down or broken | Maintainer | Best effort. There is no paid support ([platform](../technical/azure-platform-and-costs.md#the-budget)) |
+| Request to download or delete personal data | Data steward | Within the period set by the [X1](../decisions/open-questions.md#x1-data-protection-for-the-international-contact-list--blocking-for-launch-not-for-building) review |
+| ELSNet application questions | ELSNet coordinator | As today |
+
+The Technology team keeps a short runbook for the maintainer's rows, so a second person can follow it if the first is away.
+
 ## Not in any of the four releases
 
 These were considered and deliberately left out. The reasons are in [Application Architecture](../technical/application-architecture.md#out-of-scope-for-v1).
@@ -132,6 +173,8 @@ These were considered and deliberately left out. The reasons are in [Application
 
 ## How to review
 
+Reviews run in rounds, each with a closing date, through a channel product owners already use ([P8](../decisions/open-questions.md#p8-how-will-product-owners-review-and-comment--blocking-for-review)). A named review steward shares each round and brings the comments back.
+
 1. Read this page, then [Public Site](static-site.md) and [Application](application.md). Each is organised by release.
 2. Comment on any function you think is in the wrong release, or shouldn't be in any.
-3. Answer or accept [P1–P7](../decisions/open-questions.md#for-the-product-owners). Accepted answers are recorded in the [Decision Register](../decisions/README.md).
+3. Answer or accept [P1–P10](../decisions/open-questions.md#for-the-product-owners). Accepted answers are recorded in the [Decision Register](../decisions/README.md).

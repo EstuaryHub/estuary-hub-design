@@ -56,6 +56,7 @@ When a design choice helps one of these people at another's expense, the newcome
 | S15 | The site in German | Static V1 | Should | — |
 | S16 | "Last confirmed" and paused-group notices | Static V1 | Should | 2 (partly) |
 | S17 | Printable group flyer | Static V1 | Could | — |
+| S18 | Report a problem with this listing | Static MVP | Must | 2 (partly) |
 
 ## Static MVP
 
@@ -89,6 +90,8 @@ The tone is "not yet, and here is what is close," never "no results found."
 ### S4. A page for every group
 
 Each group gets its own permanent web address. The page shows the group's name, when it meets, where (venue and city only, unless the leader chooses to publish more), format, language and any special directions, with a small map and one Contact button. The pages are built to be indexed well by search engines, because most newcomers will arrive on a group page rather than the home page.
+
+Each group page also says plainly how groups relate to the organisation, and how to raise a concern, following the board's answer to [B9](../decisions/open-questions.md#b9-what-does-the-site-promise-about-the-groups-themselves--pre-static-mvp-launch).
 
 **What the page never shows:** an email address, a phone number, or a street address the leader has not explicitly chosen to publish.
 
@@ -126,6 +129,7 @@ One form, replacing today's separate Add and Edit forms, which shared nothing.
 
 - **To update an existing group,** the leader picks their group, and the form opens with the current details filled in.
 - **To add a new group,** they start from a blank copy of the same form.
+- **To hand a group over or close it,** they choose that option, and either name the person taking over or say the group has stopped meeting. A handover is confirmed with the new leader before it takes effect. A closed group is marked paused, never deleted, so its page still explains what happened.
 
 The request reaches the administrators' inbox in a consistent format that shows what changed. An administrator checks it and publishes it, and the change appears on the site within minutes. The form tells the leader how long this usually takes ([P3](../decisions/open-questions.md#p3-how-quickly-will-administrators-act-on-listing-requests--pre-static-mvp-launch)).
 
@@ -152,6 +156,12 @@ These numbers are the evidence for App MVP ([P6](../decisions/open-questions.md#
 
 Two short, plain-language pages. One says what the site collects through its forms, who receives it, and how long it is kept. The other says what accessibility standard the site meets and how to report a problem. Their exact content depends on [X1](../decisions/open-questions.md#x1-data-protection-for-the-international-contact-list--blocking-for-launch-not-for-building) and [X2](../decisions/open-questions.md#x2-accessibility-obligations--pre-launch).
 
+### S18. Report a problem with this listing
+
+Every group page has a small "Report a problem" link. A visitor who turns up to find the group no longer meets there, or who has a concern about a group, says so in a short form. It goes to the administrators' inbox like S9, and once App MVP is live, to the review queue ([A7](application.md#a7-review-queue)).
+
+Visitors are usually the first to discover a listing is wrong. Without this link, the only check is the leaders' twice-yearly confirmation. The same route handles concerns about a group itself, as set out in [B9](../decisions/open-questions.md#b9-what-does-the-site-promise-about-the-groups-themselves--pre-static-mvp-launch).
+
 ### Static MVP launch criteria
 
 The old Wix directory is switched off only when all of these are true ([P5](../decisions/open-questions.md#p5-what-must-be-true-before-the-wix-directory-is-switched-off--pre-static-mvp-launch)):
@@ -161,6 +171,8 @@ The old Wix directory is switched off only when all of these are true ([P5](../d
 - Re-consent outreach has run, and its grace period has started ([B4](../decisions/open-questions.md#b4-re-consent-or-migrate-the-contact-list-as-it-stands--pre-launch))
 - The data-protection review is complete ([X1](../decisions/open-questions.md#x1-data-protection-for-the-international-contact-list--blocking-for-launch-not-for-building))
 - The accessibility check has passed
+- The success targets and their baseline are recorded ([P9](../decisions/open-questions.md#p9-what-does-success-look-like-for-each-release--blocking-for-static-mvp-build), [F4](../decisions/open-questions.md#facts-somebody-needs-to-go-and-find))
+- Leaders have been told about the change before it happens ([launch communications](roadmap.md#launch-communications))
 - Two named administrators are in place ([B7](../decisions/open-questions.md#b7-who-moderates-and-against-what-standard--pre-launch))
 - The Wix member area no longer displays leader email addresses
 
@@ -217,6 +229,6 @@ Written so leaders and visitors can hold us to them:
 | --- | --- | --- |
 | Thin directory at launch | Few leaders answer re-consent, so fewer groups are listed than today | Start outreach during the build; unconfirmed groups stay visible for a grace period ([B4](../decisions/open-questions.md#b4-re-consent-or-migrate-the-contact-list-as-it-stands--pre-launch)) |
 | Administrators become the bottleneck | Requests pile up and leaders give up | A stated response time ([P3](../decisions/open-questions.md#p3-how-quickly-will-administrators-act-on-listing-requests--pre-static-mvp-launch)); S11 counts make the case for App MVP early |
-| Listings go stale | No sign-in means no easy way for leaders to confirm their listing | Twice-yearly admin email (S9); confirmation dates shown in Static V1 (S16) |
+| Listings go stale | No sign-in means no easy way for leaders to confirm their listing | Twice-yearly admin email (S9); visitor reports (S18); confirmation dates shown in Static V1 (S16) |
 | Contact form abuse | Spam reaches leaders through the relay | Rate limits and spam checks; leaders can report abuse by replying |
 | Wix still publishes emails | The old member area undoes the privacy fix | Part of the launch criteria above |

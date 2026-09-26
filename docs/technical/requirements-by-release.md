@@ -15,7 +15,7 @@ The product documents say **what** each release does and **for whom**. This docu
 
 [Application Architecture](application-architecture.md) and [Azure Platform and Costs](azure-platform-and-costs.md) are the current proposal for meeting these requirements. They describe the **App V1 end state**. Earlier releases use a subset of that design.
 
-Requirement IDs are prefixed by release: **G** (every release), **SM** (Static MVP), **SV** (Static V1), **AM** (App MVP) and **AV** (App V1). Function IDs (S1–S17, A1–A17) refer to the product documents.
+Requirement IDs are prefixed by release: **G** (every release), **SM** (Static MVP), **SV** (Static V1), **AM** (App MVP) and **AV** (App V1). Function IDs (S1–S18, A1–A18) refer to the product documents.
 
 | Release | Ships | Runtime pieces |
 | --- | --- | --- |
@@ -42,13 +42,13 @@ Requirement IDs are prefixed by release: **G** (every release), **SM** (Static M
 
 ## Static MVP
 
-Functions S1–S12. **No database, no sign-in, no always-on compute.**
+Functions S1–S12 and S18. **No database, no sign-in, no always-on compute.**
 
 | ID | Requirement | Serves |
 | --- | --- | --- |
 | SM1 | The directory data file holds every published group with public fields only (see [the seam](#the-seam-between-the-two-products)), and search runs in the browser against it | S2, S3, S4 |
 | SM2 | One prebuilt page per published group, with structured data (organisation or event) and a sitemap | S4 |
-| SM3 | A form-delivery function accepts the contact (S5), request (S9) and ELSNet (S7) forms and delivers each by email to the right recipient, with the sender set as reply-to on contact messages | S5, S7, S9 |
+| SM3 | A form-delivery function accepts the contact (S5), request (S9), ELSNet (S7) and report-a-problem (S18) forms and delivers each by email to the right recipient, with the sender set as reply-to on contact messages | S5, S7, S9, S18 |
 | SM4 | Leader email addresses used by SM3 are held in a private store readable only by that function. They are never in the public repository, the data file or the build output ([D12](../decisions/open-questions.md#d12-how-does-the-contact-relay-work-before-the-application-exists--blocking-for-static-mvp)) | S5 |
 | SM5 | An administrator can publish a directory change without developer help, and it is live within minutes ([D11](../decisions/open-questions.md#d11-where-does-the-directory-live-before-the-application-exists--blocking-for-static-mvp)) | S9 |
 | SM6 | Every change to the directory is reviewable and has a history (who, when, what changed) | S9, stands in for the App MVP change history |
@@ -57,6 +57,8 @@ Functions S1–S12. **No database, no sign-in, no always-on compute.**
 | SM9 | Map tiles load independently and never block the result list; the list is complete without the map | S2 |
 | SM10 | Running cost close to zero; one volunteer can keep it running in a few hours a month | Tests the [B3](../decisions/open-questions.md#b3-who-maintains-this-after-launch--blocking) assumption cheaply |
 | SM11 | The directory data can be exported in the seam format for a one-time import into App MVP | Transition to App MVP |
+| SM12 | A short runbook covers deploy, rollback, rotating the relay's private store, and what to do when email stops arriving, written so a second person can follow it | [Support model](../product/roadmap.md#running-it-after-launch) |
+| SM13 | The Technology team gives a rough size for each release before product owners approve its scope | [Delivery checklist](../decisions/delivery-checklist.md) |
 
 ## Static V1
 
@@ -73,7 +75,7 @@ Functions S13–S17. Still no dependency on the application.
 
 ## App MVP
 
-Functions A1–A10. **This is where the database, identity provider and long-term maintenance commitment arrive.**
+Functions A1–A10 and A18. **This is where the database, identity provider and long-term maintenance commitment arrive.**
 
 | ID | Requirement | Serves |
 | --- | --- | --- |
@@ -94,6 +96,9 @@ Functions A1–A10. **This is where the database, identity provider and long-ter
 | AM15 | Non-production environments stop when idle ([D5](../decisions/open-questions.md#d5-how-are-three-environments-funded-and-kept-cheap--blocking)) | Budget |
 | AM16 | Running cost fits inside the nonprofit grant, with alerts at 50% and 80% | [Budget](azure-platform-and-costs.md#the-budget) |
 | AM17 | The S7 and S9 forms hand over to the application (sign in and edit, or apply) without changing their public addresses | Transition |
+| AM18 | Transferring a group needs the new owner's acceptance. Closing a group sets it to paused and never deletes its public page. Both are written to the audit log | A18 |
+| AM19 | Visitor reports (S18) land in the review queue with the group they concern | A7, S18 |
+| AM20 | The data needed for the [P9](../decisions/open-questions.md#p9-what-does-success-look-like-for-each-release--blocking-for-static-mvp-build) targets (claim rate, application stage age, listing-change handling time) can be reported without querying the database by hand | P9 |
 
 ## App V1
 
@@ -119,7 +124,7 @@ The public site and the application communicate only through the interfaces belo
 | --- | --- | --- | --- |
 | Directory data file | Producer → public site | Published groups with public fields only: `slug`, `name`, `meets_when`, `meets_where`, `special_directions`, `meetup_url`, location at published precision, `timezone`, `language`, `format`. From Static V1 it also carries `status` (published or paused) and `last_confirmed_at`. The file carries a `schema_version`; the site ignores fields it doesn't know | Static MVP |
 | Leaders data file | Producer → public site | Opted-in leaders only: `slug`, display name, city, region, country, centroid location, and the slug of any group they lead | Static V1 |
-| Form delivery | Public site → producer | One endpoint per form (contact, listing request, ELSNet, interest). The body includes a group or leader slug; the response says whether the message was accepted, never who it went to. Recipient lookup happens on the server | Static MVP |
+| Form delivery | Public site → producer | One endpoint per form (contact, listing request, report a problem, ELSNet, interest). The body includes a group or leader slug; the response says whether the message was accepted, never who it went to. Recipient lookup happens on the server | Static MVP |
 | Public addresses | Shared | `/groups/{slug}` and `/leaders/{slug}` are permanent; slugs survive a rename | Static MVP |
 | Account entry | Public site → application | A sign-in link in the account menu, plus deep links: "update your group" goes to sign-in and then the edit form for that slug | App MVP |
 

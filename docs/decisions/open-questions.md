@@ -29,10 +29,11 @@ The earliest release each question holds up. Questions for Static MVP come first
 
 | Holds up | Product owners | Board | Technology team | Outside review / facts |
 | --- | --- | --- | --- | --- |
-| Static MVP build | P1 | B1, B2, B3 (light-duty maintainer), B8 | D3, D4, D7, D8, D11, D12 | X3 |
-| Static MVP launch | P3, P5 | B4, B5, B7 | — | X1, X2, F6 |
+| Product-owner review | P8 | — | — | — |
+| Static MVP build | P1, P9 | B1, B2, B3 (light-duty maintainer), B8, B10 | D3, D4, D7, D8, D11, D12 | X3, F4, F8 |
+| Static MVP launch | P3, P5 | B4, B5, B7, B9 | — | X1, X2, F6 |
 | Static V1 | P2, P4 | — | — | F7 |
-| App MVP build | P6 | B3 (long-term maintainer) | D1, D2, D5, D10 | F1, F2, F3 |
+| App MVP build | P6, P10 | B3 (long-term maintainer) | D1, D2, D5, D10 | F1, F2, F3 |
 | App MVP launch | — | — | D6, D9 | — |
 | App V1 | P7 | B6 | — | — |
 
@@ -77,6 +78,36 @@ Each message holds a person's email address and rough location, and until App V1
 The Wix member area has a radius search over members. Rebuilding it with per-field privacy is real work.
 
 *Recommended default: check how much the Wix version is used before App V1 is scoped. If it is barely used, retire it with the Wix member area and do not rebuild it.*
+
+### P8. How will product owners review and comment? — Blocking for review
+
+Product owners are community members, and most will not comment on Markdown files in a GitHub repository. Without a channel they can actually use, silence will look like agreement under "if nobody objects, that is the answer" — which is the wrong way for a decision to be made.
+
+*Recommended default: each review round is exported to a shared document or PDF with a stated closing date. One named review steward gathers the comments, brings them back into the repository, and records outcomes in the [Decision Register](README.md). A recommended default stands only if the round actually reached the product owners and the closing date passed without objection.*
+
+### P9. What does success look like for each release? — Blocking for Static MVP build
+
+Counts (S11) say what is measured, not what counts as working. Targets need a baseline from today's site ([F4](#facts-somebody-needs-to-go-and-find)) captured before Wix is switched off, or no improvement can ever be shown.
+
+*Recommended default targets, confirmed or adjusted once the baseline is in:*
+
+| Release | Measured after | Target |
+| --- | --- | --- |
+| Static MVP | 3 months | Zero email addresses exposed anywhere; contact messages reaching leaders at least at today's level; listing requests handled within the promised time ([P3](#p3-how-quickly-will-administrators-act-on-listing-requests--pre-static-mvp-launch)) nine times in ten |
+| Static V1 | 3 months | Every "no group here" search offers at least one next step; interest registrations and leader opt-ins tracked by region |
+| App MVP | 90 days | Three in four active groups claimed by their leaders; no ELSNet application without movement for more than 30 days; administrator time on listing changes clearly down |
+| App V1 | 6 months | Nine in ten published listings confirmed within the last 12 months; the Wix site switched off |
+
+The App MVP claim rate is the one to watch. It tests the riskiest assumption in the plan: that leaders who touch the site a few times a year will take ownership of their listing.
+
+### P10. What if the Static MVP falls short? — Pre-App MVP
+
+B3 has a fallback; the rebuild as a whole needs one too.
+
+*Recommended default: review three months after Static MVP launch against [P9](#p9-what-does-success-look-like-for-each-release--blocking-for-static-mvp-build).*
+- *If it meets its targets and a long-term maintainer exists, start App MVP.*
+- *If it meets its targets but nobody can commit to the application, stop at the static releases. They stand alone by design and are still better than today's site.*
+- *If the site itself cannot be kept running by a volunteer, return to improving Wix in place, as described under [B3](#b3-who-maintains-this-after-launch--blocking), and carry over the directory data and redirects.*
 
 ## For the board
 
@@ -129,6 +160,18 @@ An open submission form on a public directory needs someone deciding what gets p
 The current site is closely identified with specific individuals. A nonprofit-owned platform may want a different posture — more institution, less personality — and that materially changes the home page and FAQ copy.
 
 *Recommended default: worth ten minutes of discussion before the content is written, because rewriting it afterwards is the expensive order.*
+
+### B9. What does the site promise about the groups themselves? — Pre-Static MVP launch
+
+The site sends strangers, some of them lonely or vulnerable, to meet other strangers and talk about belief and meaning. Two things need a board answer before the group pages and FAQ are written: whether listed groups are endorsed by the organisation or independently run, and what someone should do if a meeting goes wrong.
+
+*Recommended default: groups are described as independently run by trained volunteers, following a short published set of shared expectations. Every group page links to that statement and to a way to raise a concern with the organisation, which goes to the administrators and is handled like a listing report (S18). Worth a qualified read alongside X1, since it touches liability.*
+
+### B10. Who owns content, design and support? — Blocking for Static MVP build
+
+The Static MVP's critical path includes work no one is named for: writing the about pages and FAQ, drafting the re-consent and launch messages, the visual design, German translation for Static V1, and answering visitors and leaders after launch.
+
+*Recommended default: name four roles, which may be the same people — a content owner, a designer (or a decision that design is developer-led, following the [interface brief](../product/interface-design-brief.md#deliverables-and-phases)), a support lead for the administrators' inbox, and a data steward who handles download and deletion requests. Record the names in the [Delivery Checklist](delivery-checklist.md).*
 
 ## For the development team
 
@@ -297,16 +340,17 @@ Not decisions — unknowns. Each is answered by looking, and each changes an est
 | F1 | How large is the real dataset behind the site? | 54 groups and 106 leader emails are counted from rendered pages. The CMS almost certainly holds more — unpublished records, interest signups, past applications. Every migration estimate assumes the export, not the HTML | Site administrator |
 | F2 | Are the Blog, Groups and Chat apps actually in use? | All three load in the home page bundle, but no route exposes them. If they are live behind the member wall, scope grows from a directory to a platform. If they are vestigial, they are simply deleted | Site administrator |
 | F3 | How many ELSNet applications exist, and at what stage? | Decides whether the pipeline migrates real state or starts empty | ELSNet coordinator |
-| F4 | What is the current traffic? | Every free-tier calculation assumes low volume. Wix analytics would confirm it in five minutes | Site administrator |
+| F4 | What is the current traffic, and what is the baseline to beat? | Every free-tier calculation assumes low volume, and the success targets in [P9](#p9-what-does-success-look-like-for-each-release--blocking-for-static-mvp-build) need a before-picture: monthly visits, directory page views, and how many contacts leaders say they receive. Capture it before Wix is switched off, or it is gone | Site administrator, plus a short question to leaders |
 | F5 | Who currently administers the site day to day? | They are the real domain expert on the moderation workflow, and the person the admin surface is being designed for | The board |
 | F6 | Where is the domain registered, and who controls DNS? | A launch-day dependency that surfaces at the worst moment if nobody checks early | The board |
 | F7 | Are there other language groups beyond the German one? | Affects whether internationalisation is theoretical or immediate | ELSNet coordinator |
+| F8 | When does the Wix subscription renew, and what does it cost? | The Wix member area keeps running until App V1, so both sites are paid for in parallel. The renewal date sets a natural deadline | Board treasurer |
 
 F1 and F2 are the two worth chasing first. F1 sizes the migration; F2 decides whether this is a three-month project or a six-month one.
 
 ## The critical path
 
-Of everything above, five answers unblock the rest — and none of them needs a developer.
+Of everything above, five answers unblock the rest — and none of them needs a developer. One thing comes before all five: [P8](#p8-how-will-product-owners-review-and-comment--blocking-for-review), a review channel the product owners can actually use, so that their answers are real answers.
 
 1. **Does the Static MVP ship first and on its own (P1).** If yes, the questions below are needed for the Static MVP, and the heavier commitments (a long-term maintainer, the data store) move back to App MVP.
 2. **Who maintains this after launch (B3).** Answer this first, because a no changes the project rather than delaying it. Static MVP needs only a light-duty maintainer; App MVP needs a committed one. If no name emerges even for the Static MVP, improving the Wix site in place is the honest alternative and everything below becomes moot.

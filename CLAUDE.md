@@ -28,9 +28,10 @@ Use these four names exactly. "Phase 1" and "core release" are retired terms.
 
 ## Doc map
 
-- `docs/product/roadmap.md` — releases, order, gaps closed per release, Wix transition
-- `docs/product/static-site.md` — functions S1–S17 with release + priority
-- `docs/product/application.md` — functions A1–A17 with release + priority
+- `docs/product/roadmap.md` — releases, order, gaps closed, Wix transition, success targets, launch comms, support model
+- `docs/product/static-site.md` — functions S1–S18 with release + priority
+- `docs/product/application.md` — functions A1–A18 with release + priority
+- `docs/product/discovery-interview-guide.md` — five pre-build conversations; interview notes never enter the repo
 - `docs/product/interface-design-brief.md` — experience, brand, a11y, design phases per release
 - `docs/technical/requirements-by-release.md` — guarantees G/SM/SV/AM/AV + the seam contract
 - `docs/technical/application-architecture.md` — App V1 end state: data model, modules, API
@@ -118,7 +119,7 @@ From `docs/decisions/open-questions.md` (critical path), in order:
 
 ## Repo conventions
 
-- **No production data in this repo, ever.** It is public and the app holds ~150
+- **No production data or interview notes in this repo, ever.** It is public and the app holds ~150
   real people's contact details. Synthetic seed only; that seed is the only
   dataset the test suite knows.
 - Secret scanning + push protection on. OIDC federation to Azure, no long-lived
