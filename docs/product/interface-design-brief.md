@@ -7,6 +7,7 @@ Sep 26, 2026 · @joseph · Companion to the Roadmap · For whoever designs the i
 - [Open Questions](../decisions/open-questions.md)
 - [Decision Register](../decisions/README.md)
 - [Roadmap](roadmap.md) — the four releases this brief is delivered across
+- [Visual Design Proposal](visual-design-proposal.md) — phases A and B as proposed values, and a clickable example of the community wireframe
 
 ## The design problem
 

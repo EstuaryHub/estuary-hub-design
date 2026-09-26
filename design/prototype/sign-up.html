@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up and find a group · Estuary</title>
+  <meta name="description" content="Join an Estuary group near you or become a group leader.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&amp;display=swap">
+  <link rel="stylesheet" href="../tokens/tokens.css">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+<div class="page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container site-header__bar">
+      <a class="brand" href="index.html" aria-label="Estuary home">
+        <svg class="brand__mark" viewBox="0 0 48 32" aria-hidden="true"><circle cx="17" cy="16" r="14" fill="#1B6B67"/><circle cx="31" cy="16" r="14" fill="#B8914A" fill-opacity="0.75"/></svg>
+        <span class="brand__word">Estuary</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4.5h14M2 9h14M2 13.5h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <a class="site-nav__link" href="index.html">Home</a>
+        <a class="site-nav__link" href="what-is-estuary.html">What is Estuary?</a>
+        <a class="site-nav__link" href="sign-up.html" aria-current="page">Sign Up</a>
+        <a class="site-nav__link" href="conferences.html">Conferences</a>
+        <a class="site-nav__link" href="contact.html">Contact</a>
+        <div class="site-nav__actions">
+          <a class="btn btn--welcome" href="donate.html">Donate</a>
+          <a class="btn btn--secondary" href="account.html">Log in</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <div class="container page-head stack">
+      <span class="eyebrow">Get involved</span>
+      <h1 class="display">Sign Up</h1>
+    </div>
+
+    <section style="padding-bottom: var(--space-8)">
+      <div class="container grid-2">
+        <div class="card card--roomy stack">
+          <h2 class="h2">Why join an Estuary?</h2>
+          <p>Estuary has the power to build deep connections among different people across ideological, philosophical, cultural, and all demographic lines. It encourages participants not only to speak, but also to listen. In the give and take of the conversation, participants practice active listening, building empathy and understanding.</p>
+          <a class="btn btn--primary" href="#find" style="align-self: flex-start; margin-top: auto">Find an Estuary</a>
+        </div>
+        <div class="card card--welcome card--roomy stack" id="lead">
+          <h2 class="h2">Why become an Estuary group leader?</h2>
+          <p>[Why lead — to be written by Estuary leadership. The wireframe leaves this as “Add text here”.]</p>
+          <div class="row" style="margin-top: auto">
+            <a class="btn btn--dark" href="#">Become a group leader</a>
+            <a class="btn btn--outline-ink" href="#">Leadership training</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface" id="find" style="border-bottom: 0">
+      <div class="container stack stack--lg">
+        <div class="row" style="justify-content: space-between; align-items: flex-end; gap: var(--space-5)">
+          <h2 class="h2">Find an Estuary near you</h2>
+          <form class="row" role="search" aria-label="Find an Estuary" style="align-items: flex-end">
+            <div class="field">
+              <label class="field__label" for="s-loc">City or postal code</label>
+              <input class="field__input" id="s-loc" type="text" value="Grand Rapids, MI" style="width: 260px; max-width: 100%">
+            </div>
+            <div class="field">
+              <label class="field__label" for="s-rad">Within</label>
+              <select class="field__select" id="s-rad"><option>25 miles</option><option>50 miles</option><option>100 miles</option></select>
+            </div>
+            <button class="btn btn--secondary" type="button">Use my location</button>
+          </form>
+        </div>
+        <p class="small muted">Results update as you type. Sample data — group names, times and distances are placeholders. Prototype views: <a href="?results=some#find" data-results-link="some">results</a> · <a href="?results=none#find" data-results-link="none">nothing nearby</a></p>
+
+        <div class="row" id="finder-count" style="justify-content: space-between">
+          <strong>4 groups within 25 miles</strong>
+          <button class="btn btn--secondary finder__map-toggle" type="button" id="map-toggle" aria-controls="finder-map" aria-expanded="false">Show map</button>
+        </div>
+
+        <div class="finder" id="finder">
+          <div class="finder__list">
+            <button class="group-card" type="button" aria-pressed="true" data-name="[Group name A]" data-meta="[Tuesdays, 7 pm] · [Neighbourhood] · 3 mi">
+              <span class="group-card__top"><span class="group-card__name">[Group name A]</span><span class="group-card__dist">3 mi</span></span>
+              <span class="group-card__meta">[Tuesdays, 7 pm] · [Neighbourhood]</span>
+              <span class="badge"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="currentColor"/></svg>In person</span>
+            </button>
+            <button class="group-card" type="button" aria-pressed="false" data-name="[Group name B]" data-meta="[1st Sunday, 4 pm] · [Town] · 8 mi">
+              <span class="group-card__top"><span class="group-card__name">[Group name B]</span><span class="group-card__dist">8 mi</span></span>
+              <span class="group-card__meta">[1st Sunday, 4 pm] · [Town]</span>
+              <span class="badge"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="currentColor"/></svg>In person</span>
+            </button>
+            <button class="group-card" type="button" aria-pressed="false" data-name="[Group name C]" data-meta="[Thursdays, 6:30 pm] · [Town] · 14 mi">
+              <span class="group-card__top"><span class="group-card__name">[Group name C]</span><span class="group-card__dist">14 mi</span></span>
+              <span class="group-card__meta">[Thursdays, 6:30 pm] · [Town]</span>
+              <span class="badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1a5 5 0 0 0 0 10z" fill="currentColor"/><circle cx="6" cy="6" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Hybrid</span>
+            </button>
+            <button class="group-card" type="button" aria-pressed="false" data-name="[Group name D]" data-meta="[Alternate Mondays] · [Town] · 22 mi">
+              <span class="group-card__top"><span class="group-card__name">[Group name D]</span><span class="group-card__dist">22 mi</span></span>
+              <span class="group-card__meta">[Alternate Mondays] · [Town]</span>
+              <span class="badge"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="currentColor"/></svg>In person</span>
+            </button>
+            <div class="stack" style="margin-top: var(--space-2); padding-top: var(--space-4); border-top: 1px solid var(--color-line)">
+              <strong>Online — join from anywhere</strong>
+              <div class="group-card" style="cursor: default">
+                <span class="group-card__top"><span class="group-card__name">[Online group name]</span><span class="badge"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="1.5" y="1.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2"/></svg>Online</span></span>
+                <span class="group-card__meta">[Day, time, time zone]</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="map" id="finder-map">
+            <svg class="map__art" viewBox="0 0 700 720" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 520 C140 470 220 560 360 500 S600 420 700 460 L700 720 L0 720 Z" fill="#D2E3E0"/>
+              <path d="M60 0 L60 720 M220 0 L220 720 M380 0 L380 720 M540 0 L540 720 M0 140 L700 140 M0 300 L700 300 M0 440 L700 440 M0 600 L700 600" stroke="#FFFFFF" stroke-width="3"/>
+              <path d="M0 250 C200 230 330 330 700 280" stroke="#FFFFFF" stroke-width="7" fill="none"/>
+            </svg>
+            <button class="map__pin" type="button" aria-pressed="true" aria-label="[Group name A], 3 miles" style="left: 38%; top: 30%"></button>
+            <button class="map__pin" type="button" aria-pressed="false" aria-label="[Group name B], 8 miles" style="left: 64%; top: 22%"></button>
+            <button class="map__pin" type="button" aria-pressed="false" aria-label="[Group name C], 14 miles" style="left: 24%; top: 52%"></button>
+            <button class="map__pin" type="button" aria-pressed="false" aria-label="[Group name D], 22 miles" style="left: 78%; top: 46%"></button>
+            <span class="map__tiles-note">[Map tiles load here]</span>
+            <div class="map__selected" aria-live="polite">
+              <div class="stack" style="gap: 4px">
+                <span class="group-card__name" id="map-selected-name">[Group name A]</span>
+                <span class="small muted" id="map-selected-meta">[Tuesdays, 7 pm] · [Neighbourhood] · 3 mi</span>
+              </div>
+              <a class="btn btn--primary" href="contact.html">Contact this group</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2" id="finder-empty" hidden>
+          <div class="card card--welcome card--roomy stack">
+            <h3 class="h2" style="font-size: 1.875rem">No estuaries within 25 miles yet — the closest is in [City], [distance] away.</h3>
+            <div class="group-card" style="cursor: default; border-color: var(--color-ink)">
+              <span class="group-card__top"><span class="group-card__name">[Nearest group]</span><span class="group-card__dist">[distance]</span></span>
+              <span class="group-card__meta">[Day, time] · [City]</span>
+            </div>
+            <p>Tell us you're interested and we'll let you know when one starts near you. Or start one yourself.</p>
+            <div class="row">
+              <a class="btn btn--primary" href="#">Let me know</a>
+              <a class="btn btn--outline-ink" href="#lead">Start a group here</a>
+            </div>
+          </div>
+          <div class="card card--roomy stack">
+            <h3 class="h3">Trained leaders nearby</h3>
+            <p class="muted">[Count] people near you have finished leadership training but haven't started a group yet. You can send them a message — they choose whether to reply.</p>
+            <a href="contact.html" style="font-weight: 700">See leaders nearby</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-bottom: 88px; background: var(--color-surface)">
+      <div class="container row" style="justify-content: center">
+        <a class="btn btn--primary btn--lg" href="account.html">Register / Sign up</a>
+        <a class="btn btn--secondary btn--lg" href="#">Leadership training</a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__cols">
+        <div class="site-footer__col site-footer__about">
+          <a class="brand" href="index.html" aria-label="Estuary home">
+            <svg class="brand__mark" viewBox="0 0 48 32" aria-hidden="true"><circle cx="17" cy="16" r="14" fill="#5FA8A2"/><circle cx="31" cy="16" r="14" fill="#D9B97A" fill-opacity="0.8"/></svg>
+            <span class="brand__word">Estuary</span>
+          </a>
+          <p class="small" style="color: var(--color-on-deep-muted)">Open, welcoming communities dedicated to honest and respectful dialogue.</p>
+        </div>
+        <nav class="site-footer__col" aria-label="Explore">
+          <span class="site-footer__heading">Explore</span>
+          <a href="what-is-estuary.html">What is Estuary?</a>
+          <a href="sign-up.html#find">Find an Estuary</a>
+          <a href="conferences.html">Conferences</a>
+        </nav>
+        <nav class="site-footer__col" aria-label="Get involved">
+          <span class="site-footer__heading">Get involved</span>
+          <a href="sign-up.html#lead">Become a group leader</a>
+          <a href="donate.html">Donate</a>
+          <a href="contact.html">Contact us</a>
+        </nav>
+        <div class="site-footer__col">
+          <span class="site-footer__heading">Follow</span>
+          <a href="#">[Social link 1]</a>
+          <a href="#">[Social link 2]</a>
+          <a href="#">[Social link 3]</a>
+        </div>
+      </div>
+      <div class="site-footer__base">
+        <span>© 2026 [Estuary legal name] · [Nonprofit status line]</span>
+        <span class="lang-switch"><a href="#" lang="en" aria-current="true">English</a><a href="#" lang="de" hreflang="de">Deutsch</a></span>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

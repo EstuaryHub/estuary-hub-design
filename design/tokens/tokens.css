@@ -1,0 +1,81 @@
+/*
+ * Estuary design tokens — proposal, 26 Sep 2026.
+ * Source of truth for colour, type, space and shape. tokens.json mirrors
+ * these values; change both together. Contrast ratios are WCAG 2.1,
+ * computed against the background named in each comment.
+ */
+:root {
+  /* Ground and ink */
+  --color-ground: #F3F7F7;        /* page background */
+  --color-surface: #FFFFFF;       /* cards, header, fields */
+  --color-ink: #0F2A2E;           /* text; 14.0:1 on ground */
+  --color-ink-muted: #4A6462;     /* secondary text; 5.9:1 on ground */
+  --color-line: #C9D8D6;          /* dividers, card edges; decorative only */
+  --color-field-edge: #7F9795;    /* input outlines; 3.1:1 on surface */
+
+  /* Primary accent: tidal teal */
+  --color-teal: #1B6B67;          /* links, primary buttons, pins; 5.8:1 on ground, white on it 6.3:1 */
+  --color-teal-deep: #14524F;     /* hover, pressed; white on it 8.9:1 */
+  --color-teal-mist: #E1EEEC;     /* badges, selected rows; teal-deep on it 7.5:1 */
+
+  /* Warm accent: silt. Sparingly, for welcome moments only */
+  --color-silt: #B8914A;          /* decoration only (logo, halos); 2.7:1, never text */
+  --color-silt-mist: #EFE3C8;     /* welcome bands, empty-state invitation; ink on it 11.9:1 */
+  --color-silt-deep: #80601F;     /* warm eyebrow text; 5.8:1 on white */
+
+  /* Dark band (footer, notices) */
+  --color-deep: #0F2A2E;
+  --color-on-deep: #D6E4E2;       /* 11.5:1 on deep */
+  --color-on-deep-muted: #9DB5B2; /* 7.0:1 on deep */
+  --color-deep-rule: #2B4A4E;
+  --color-teal-on-deep: #5FA8A2;  /* logo on dark only */
+  --color-silt-on-deep: #D9B97A;  /* logo and icons on dark only */
+
+  /* Status only; never used as the brand accent */
+  --color-success: #2E6B45;       /* 6.4:1 on white */
+  --color-warning: #8A5A00;       /* 5.9:1 on white */
+  --color-danger: #A4281F;        /* 7.2:1 on white */
+
+  /* Type */
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --text-display: 3.5rem;   /* 56, line-height 1.1, weight 500 */
+  --text-h2: 2.25rem;       /* 36, 1.2, 500 */
+  --text-h3: 1.5rem;        /* 24, 1.3, 600 */
+  --text-lede: 1.25rem;     /* 20, 1.6 */
+  --text-body: 1.125rem;    /* 18, 1.6; never below 16px */
+  --text-small: 0.9375rem;  /* 15, 1.5 */
+  --text-data: 0.875rem;    /* 14, mono, admin and data only */
+  --leading-tight: 1.1;
+  --leading-heading: 1.2;
+  --leading-body: 1.6;
+  --measure: 65ch;
+
+  /* Space: 4px base */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* Shape */
+  --radius-field: 10px;
+  --radius-card: 16px;
+  --radius-panel: 24px;
+  --radius-pill: 999px;
+  --shadow-raised: 0 8px 24px rgba(15, 42, 46, 0.08);
+
+  /* Layout */
+  --container: 1120px;
+  --gutter: 24px;
+  --page-margin: 16px;      /* phone; 80px from 1024px up */
+  --target-min: 44px;       /* minimum touch target */
+  --control-height: 48px;
+  --focus-ring: 3px solid var(--color-teal);
+}
