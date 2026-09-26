@@ -2,6 +2,8 @@
 
 This checklist records evidence-backed prerequisites. It does not replace detailed rationale in the design records or live questions in [Open Questions](../04-open-questions.md).
 
+Do not mark a row `Complete` until it has a named owner and recorded evidence.
+
 | Deadline       | Prerequisite                                                      | Owner              | Status | Evidence | Source                                                                        |
 | -------------- | ----------------------------------------------------------------- | ------------------ | ------ | -------- | ----------------------------------------------------------------------------- |
 | Before Phase 1 | Name a maintainer and backup maintainer                           | Board              | Open   | —        | [B3](../04-open-questions.md#b3-who-maintains-this-after-launch--blocking)    |
