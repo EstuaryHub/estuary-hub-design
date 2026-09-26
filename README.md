@@ -6,9 +6,9 @@ Estuary Hub is a sanctioned, nonprofit-backed, open-source rebuild of estuaryhub
 
 Estuary Hub is two products, each with an MVP and a V1.
 
-| | MVP | V1 |
-| --- | --- | --- |
-| **Public site.** No sign-in; anyone can use it | **Static MVP.** Find a group near you and contact its leader privately. No email address is ever published. | **Static V1.** Trained leaders nearby, "tell us you're interested", German, and listing freshness shown |
+|                                                              | MVP                                                                                                                        | V1                                                                                                                                     |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **Public site.** No sign-in; anyone can use it               | **Static MVP.** Find a group near you and contact its leader privately. No email address is ever published.                | **Static V1.** Trained leaders nearby, "tell us you're interested", German, and listing freshness shown                                |
 | **Application.** Signed in: leaders, members, administrators | **App MVP.** Leaders claim and edit their own listings, ELSNet applications are tracked, administrators get a review queue | **App V1.** Member profiles with field-by-field privacy, the member finder, reports, stale-listing review; the Wix member area retired |
 
 **Order:** Static MVP ships first and on its own. Static V1 and App MVP follow in parallel. App V1 comes last. See the [Roadmap](docs/product/roadmap.md).
@@ -30,11 +30,11 @@ The [question index](docs/decisions/open-questions.md#question-index) shows what
 
 ## Who owns what
 
-| Owner | Decides | Owns these documents |
-| --- | --- | --- |
-| **Product owners.** Estuary leadership and community members | What each release does and for whom; P-questions | [`docs/product/`](docs/product/) |
-| **Board** | Licence, accounts, maintainer, data stewardship; B-questions | Decisions in [`docs/decisions/`](docs/decisions/) |
-| **Estuary Technology team.** Technical product owners | How each release is built; D-questions | [`docs/technical/`](docs/technical/) |
+| Owner                                                        | Decides                                                      | Owns these documents                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------- |
+| **Product owners.** Estuary leadership and community members | What each release does and for whom; P-questions             | [`docs/product/`](docs/product/)                  |
+| **Board**                                                    | Licence, accounts, maintainer, data stewardship; B-questions | Decisions in [`docs/decisions/`](docs/decisions/) |
+| **Estuary Technology team.** Technical product owners        | How each release is built; D-questions                       | [`docs/technical/`](docs/technical/)              |
 
 ## Reading paths
 
@@ -57,26 +57,48 @@ The [question index](docs/decisions/open-questions.md#question-index) shows what
 
 **Designers:** [Interface Design Brief](docs/product/interface-design-brief.md), then the two product documents.
 
-## Repository map
+## Project Tracking
 
-```text
-docs/
-  product/                        owned by the product owners
-    roadmap.md                    releases, order, success targets, launch comms, support model
-    static-site.md                Static MVP and Static V1 functions (S1–S18)
-    application.md                App MVP and App V1 functions (A1–A18)
-    discovery-interview-guide.md  five conversations to test the riskiest assumptions
-    interface-design-brief.md     experience, brand, accessibility, design deliverables
-  technical/                      owned by the Estuary Technology team
-    requirements-by-release.md    guarantees per release (G, SM, SV, AM, AV) and the seam contract
-    application-architecture.md   end-state data model, modules, API, non-functional requirements
-    azure-platform-and-costs.md   hosting, verified platform facts, costs, guardrails
-  decisions/                      shared
-    open-questions.md             live backlog: P, B, D, X questions and F facts
-    README.md                     decision register: resolved outcomes
-    delivery-checklist.md         prerequisites per release, with owners and evidence
-  superpowers/                    working records from design sessions (not authoritative)
-```
+- [GitHub project board](https://github.com/orgs/EstuaryHub/projects/1)
+- [Repository issue tracker](https://github.com/EstuaryHub/estuary-hub-design/issues)
+
+The ten proposed issues in [the issue drafts](sessions/build_issues.md) have not yet been created in GitHub.
+
+## Repository Index
+
+### Product Design
+
+- [Roadmap](docs/product/roadmap.md): releases, order, success targets, transition from Wix, launch communications and support
+- [Public Site](docs/product/static-site.md): Static MVP and Static V1 functions (S1–S18)
+- [Member and Admin Application](docs/product/application.md): App MVP and App V1 functions (A1–A18)
+- [Discovery Interview Guide](docs/product/discovery-interview-guide.md): five conversations to test the riskiest assumptions
+- [Interface Design Brief](docs/product/interface-design-brief.md): experience, brand, accessibility and design deliverables
+
+### Technical Design
+
+- [Requirements by Release](docs/technical/requirements-by-release.md): release guarantees (G, SM, SV, AM, AV) and the seam contract
+- [Application Architecture](docs/technical/application-architecture.md): end-state data model, modules, API and non-functional requirements
+- [Azure Platform and Costs](docs/technical/azure-platform-and-costs.md): hosting, verified platform facts, costs and guardrails
+
+### Decisions and Delivery
+
+- [Open Questions](docs/decisions/open-questions.md): live backlog of P, B, D, X questions and F facts
+- [Decision Register](docs/decisions/README.md): resolved decisions and external reviews
+- [Delivery Checklist](docs/decisions/delivery-checklist.md): prerequisites, owners and evidence per release
+
+### Reference Materials
+
+- [Leader Training Manual](content/LeaderTrainingManual_USLetter.pdf)
+- [Estuary Website Wireframe](design/Estuarywebsite_wireframe.pdf)
+
+### Working Records
+
+These records document planning work and are not authoritative product or technical decisions.
+
+- [Documentation organization design](docs/superpowers/specs/2026-09-26-documentation-organization-design.md)
+- [Documentation organization plan](docs/superpowers/plans/2026-09-26-documentation-organization.md)
+- [GitHub issue drafts](sessions/build_issues.md): proposed issue titles, labels and descriptions
+- [Project context and repository conventions](CLAUDE.md)
 
 ## How a decision moves
 
