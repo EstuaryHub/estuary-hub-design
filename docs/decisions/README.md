@@ -15,8 +15,10 @@ Add one row when a question is resolved. Update the owning design record and rep
 
 Keep an entry in this section until qualified advice is recorded and an accountable owner accepts the outcome.
 
-| ID  | Review Needed                                             | Owner | Status | Evidence | Source                                                                                                                                |
-| --- | --------------------------------------------------------- | ----- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| ID  | Review Needed                                             | Owner | Status | Evidence | Source                                                                                                                          |
+| --- | --------------------------------------------------------- | ----- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | X1  | Data-protection review for the international contact list | Board | Open   | —        | [Open Questions](open-questions.md#x1-data-protection-for-the-international-contact-list--blocking-for-launch-not-for-building) |
 | X2  | Accessibility-obligations review                          | Board | Open   | —        | [Open Questions](open-questions.md#x2-accessibility-obligations--pre-launch)                                                    |
 | X3  | Licence review                                            | Board | Open   | —        | [Open Questions](open-questions.md#x3-licence-review--blocking)                                                                 |
+
+For the GitHub project board and issue tracker, see the [Project Tracking section](../../README.md#project-tracking) in the repository README.
