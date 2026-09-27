@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design foundations · Estuary</title>
+  <meta name="description" content="Estuary colour, type, spacing and components.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400&amp;display=swap">
+  <link rel="stylesheet" href="../tokens/tokens.css">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+<div class="page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container site-header__bar">
+      <a class="brand" href="index.html" aria-label="Estuary home">
+        <svg class="brand__mark" viewBox="0 0 48 32" aria-hidden="true"><circle cx="17" cy="16" r="14" fill="#1B6B67"/><circle cx="31" cy="16" r="14" fill="#B8914A" fill-opacity="0.75"/></svg>
+        <span class="brand__word">Estuary</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4.5h14M2 9h14M2 13.5h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <a class="site-nav__link" href="index.html">Home</a>
+        <a class="site-nav__link" href="what-is-estuary.html">What is Estuary?</a>
+        <a class="site-nav__link" href="sign-up.html">Sign Up</a>
+        <a class="site-nav__link" href="conferences.html">Conferences</a>
+        <a class="site-nav__link" href="contact.html">Contact</a>
+        <div class="site-nav__actions">
+          <a class="btn btn--welcome" href="donate.html">Donate</a>
+          <a class="btn btn--secondary" href="account.html">Log in</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="section">
+    <div class="container stack" style="gap: var(--space-8)">
+      <div class="stack">
+        <span class="eyebrow">Design proposal · 26 Sep 2026</span>
+        <h1 class="display">Design foundations</h1>
+        <p class="lede measure">Where fresh water meets salt: a cool, watery ground, one tidal teal for action, and a warm silt held back for moments of welcome. Nothing shouts.</p>
+        <p class="small muted">Values live in <span class="mono">design/tokens/tokens.css</span>. Contrast ratios are WCAG 2.1, against the background named.</p>
+      </div>
+
+      <section class="stack stack--lg" aria-labelledby="h-colour">
+        <h2 class="h2" id="h-colour">Colour</h2>
+        <div class="grid-4" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))">
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-ground); border-bottom: 1px solid var(--color-line)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Ground</strong><span class="mono muted">#F3F7F7</span><span class="small">Page background</span><span class="mono muted">Ink on it 14.0:1</span></div></div>
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-surface); border-bottom: 1px solid var(--color-line)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Surface</strong><span class="mono muted">#FFFFFF</span><span class="small">Cards, header, fields</span><span class="mono muted">Ink on it 15.1:1</span></div></div>
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-ink)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Ink</strong><span class="mono muted">#0F2A2E</span><span class="small">Text; footer ground</span><span class="mono muted">14.0:1 on ground</span></div></div>
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-ink-muted)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Ink muted</strong><span class="mono muted">#4A6462</span><span class="small">Secondary text</span><span class="mono muted">5.9:1 on ground</span></div></div>
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-teal)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Tidal teal</strong><span class="mono muted">#1B6B67</span><span class="small">Links, primary buttons, map pins</span><span class="mono muted">5.8:1 on ground · white 6.3:1</span></div></div>
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-teal-deep)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Deep teal</strong><span class="mono muted">#14524F</span><span class="small">Hover and pressed</span><span class="mono muted">white on it 8.9:1</span></div></div>
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-teal-mist)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Teal mist</strong><span class="mono muted">#E1EEEC</span><span class="small">Badges, selected rows</span><span class="mono muted">Deep teal on it 7.5:1</span></div></div>
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-field-edge)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Field edge</strong><span class="mono muted">#7F9795</span><span class="small">Input outlines</span><span class="mono muted">3.1:1 (UI minimum 3:1)</span></div></div>
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-silt)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Silt</strong><span class="mono muted">#B8914A</span><span class="small">Logo, halos — decoration only</span><span class="mono muted">2.7:1 · never text</span></div></div>
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-silt-mist)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Silt mist</strong><span class="mono muted">#EFE3C8</span><span class="small">Welcome bands, empty state</span><span class="mono muted">Ink on it 11.9:1</span></div></div>
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-silt-deep)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Silt deep</strong><span class="mono muted">#80601F</span><span class="small">Warm eyebrow text</span><span class="mono muted">5.8:1 on white</span></div></div>
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-line)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Line</strong><span class="mono muted">#C9D8D6</span><span class="small">Dividers, card edges</span><span class="mono muted">decorative only</span></div></div>
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-success)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Success</strong><span class="mono muted">#2E6B45</span><span class="small">Status only</span><span class="mono muted">6.4:1 on white</span></div></div>
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-warning)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Warning</strong><span class="mono muted">#8A5A00</span><span class="small">Status only</span><span class="mono muted">5.9:1 on white</span></div></div>
+          <div class="card" style="padding: 0; overflow: hidden"><div style="height: 80px; background: var(--color-danger)"></div><div class="stack" style="padding: 14px 16px; gap: 4px"><strong>Danger</strong><span class="mono muted">#A4281F</span><span class="small">Status only</span><span class="mono muted">7.2:1 on white</span></div></div>
+        </div>
+      </section>
+
+      <section class="grid-2" style="gap: var(--space-7)">
+        <div class="stack stack--lg">
+          <h2 class="h2">Type</h2>
+          <div class="card stack">
+            <div class="stack" style="gap: 4px"><span class="mono muted">DISPLAY · Newsreader 500 · 56/1.1</span><span class="display">Honest dialogue</span></div>
+            <div class="stack" style="gap: 4px"><span class="mono muted">H2 · Newsreader 500 · 36/1.2</span><span class="h2">Why participate?</span></div>
+            <div class="stack" style="gap: 4px"><span class="mono muted">H3 · Newsreader 600 · 24/1.3</span><span class="h3">Watch a group in action</span></div>
+            <div class="stack" style="gap: 4px"><span class="mono muted">BODY · Atkinson Hyperlegible 400 · 18/1.6 · max 65ch</span><span>Participants practice listening well, articulating their thoughts, and engaging in respectful, authentic dialogue.</span></div>
+            <div class="stack" style="gap: 4px"><span class="mono muted">SMALL · 15/1.5</span><span class="small muted">Meets Tuesdays, 7 pm · In person</span></div>
+            <div class="stack" style="gap: 4px"><span class="mono muted">DATA · IBM Plex Mono 14 · admin and data only</span><span class="mono">42.9634, -85.6681</span></div>
+          </div>
+        </div>
+        <div class="stack stack--lg">
+          <h2 class="h2">Space, shape, layout</h2>
+          <div class="card stack">
+            <span class="mono muted">SPACING · 4px base: 4 8 12 16 24 32 48 64 96</span>
+            <span class="mono muted">RADIUS · 10 fields · 16 cards · 24 panels · pill buttons</span>
+            <span class="mono muted">GRID · 1120 container · 12 columns · 24 gutter</span>
+            <span class="mono muted">MARGIN · 16 on phones · 80 from 1024 up</span>
+            <div class="grid-3" style="gap: 12px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr))">
+              <div class="card card--soft small"><b>Under 640</b><br>One column. List first, map on a toggle.</div>
+              <div class="card card--soft small"><b>640–1024</b><br>Two columns where content warrants.</div>
+              <div class="card card--soft small"><b>Over 1024</b><br>Split view: results left, map right.</div>
+            </div>
+            <span class="mono muted">TARGETS · 44px minimum · controls 48px · inputs 17px so phones don't zoom</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="stack stack--lg" aria-labelledby="h-components">
+        <h2 class="h2" id="h-components">Components</h2>
+        <div class="grid-3">
+          <div class="card stack">
+            <span class="mono muted">BUTTONS</span>
+            <button class="btn btn--primary" type="button" style="align-self: flex-start">Primary — Sign Up</button>
+            <button class="btn btn--secondary" type="button" style="align-self: flex-start">Secondary — What is Estuary?</button>
+            <button class="btn btn--welcome" type="button" style="align-self: flex-start">Welcome — Start a group here</button>
+            <a href="#" style="font-weight: 700">Text link — More info</a>
+            <p class="small muted">One primary per view. Welcome (silt) is reserved for leader and empty-state invitations.</p>
+          </div>
+          <div class="card stack">
+            <span class="mono muted">FORM FIELDS</span>
+            <div class="field"><label class="field__label" for="f-name">Your name</label><input class="field__input" id="f-name" type="text" value="Ruth"></div>
+            <div class="field"><label class="field__label" for="f-email">Your email</label><input class="field__input" id="f-email" type="email" value="ruth@" aria-invalid="true" aria-describedby="f-email-err"><span class="field__error" id="f-email-err"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5 15 14H1z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 6v4M8 11.5v.5" stroke="currentColor" stroke-width="1.6"/></svg>Add the part after the @, like gmail.com</span></div>
+            <label class="check"><input type="checkbox" checked>Make this a monthly gift</label>
+          </div>
+          <div class="card stack">
+            <span class="mono muted">FORMAT BADGES · shape and word, never colour alone</span>
+            <div class="row" style="gap: 10px">
+              <span class="badge"><svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="currentColor"/></svg>In person</span>
+              <span class="badge"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="1.5" y="1.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="2"/></svg>Online</span>
+              <span class="badge"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1a5 5 0 0 0 0 10z" fill="currentColor"/><circle cx="6" cy="6" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Hybrid</span>
+            </div>
+            <span class="mono muted">GROUP CARD</span>
+            <div class="group-card" style="cursor: default">
+              <span class="group-card__top"><span class="group-card__name">[Group name]</span><span class="group-card__dist">4 mi</span></span>
+              <span class="group-card__meta">[Meeting day and time] · [Neighbourhood, City]</span>
+            </div>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="card card--welcome stack">
+            <span class="mono" style="color: var(--color-silt-deep)">EMPTY STATE · the second most important screen</span>
+            <h3 class="h3">No estuaries within 25 miles yet — the closest is [City], [distance] away.</h3>
+            <p>Tell us you're interested and we'll let you know when one starts nearby. Or start one yourself.</p>
+            <div class="row"><button class="btn btn--primary" type="button">Let me know</button><button class="btn btn--outline-ink" type="button">Start a group</button></div>
+          </div>
+          <div class="card card--deep stack">
+            <span class="mono" style="color: var(--color-on-deep-muted)">PRIVACY PROMISE · built into every contact pattern</span>
+            <h3 class="h3">No email address or phone number is ever shown.</h3>
+            <p>Every "contact" button opens a short form. The message is passed on; the visitor never sees the leader's address, and the leader chooses whether to reply.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__cols">
+        <div class="site-footer__col site-footer__about">
+          <a class="brand" href="index.html" aria-label="Estuary home">
+            <svg class="brand__mark" viewBox="0 0 48 32" aria-hidden="true"><circle cx="17" cy="16" r="14" fill="#5FA8A2"/><circle cx="31" cy="16" r="14" fill="#D9B97A" fill-opacity="0.8"/></svg>
+            <span class="brand__word">Estuary</span>
+          </a>
+          <p class="small" style="color: var(--color-on-deep-muted)">Open, welcoming communities dedicated to honest and respectful dialogue.</p>
+        </div>
+        <nav class="site-footer__col" aria-label="Explore">
+          <span class="site-footer__heading">Explore</span>
+          <a href="what-is-estuary.html">What is Estuary?</a>
+          <a href="sign-up.html#find">Find an Estuary</a>
+          <a href="conferences.html">Conferences</a>
+        </nav>
+        <nav class="site-footer__col" aria-label="Get involved">
+          <span class="site-footer__heading">Get involved</span>
+          <a href="sign-up.html#lead">Become a group leader</a>
+          <a href="donate.html">Donate</a>
+          <a href="contact.html">Contact us</a>
+        </nav>
+        <div class="site-footer__col">
+          <span class="site-footer__heading">Follow</span>
+          <a href="#">[Social link 1]</a>
+          <a href="#">[Social link 2]</a>
+          <a href="#">[Social link 3]</a>
+        </div>
+      </div>
+      <div class="site-footer__base">
+        <span>© 2026 [Estuary legal name] · [Nonprofit status line]</span>
+        <span class="lang-switch"><a href="#" lang="en" aria-current="true">English</a><a href="#" lang="de" hreflang="de">Deutsch</a></span>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

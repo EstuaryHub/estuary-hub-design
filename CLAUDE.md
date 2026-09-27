@@ -33,6 +33,8 @@ Use these four names exactly. "Phase 1" and "core release" are retired terms.
 - `docs/product/application.md` — functions A1–A18 with release + priority
 - `docs/product/discovery-interview-guide.md` — five pre-build conversations; interview notes never enter the repo
 - `docs/product/interface-design-brief.md` — experience, brand, a11y, design phases per release
+- `docs/product/visual-design-proposal.md` — palette, type, layout, pages; wireframe departures (P11–P13)
+- `design/` — community wireframe PDF, `tokens/` (tokens.css is source of truth; tokens.json mirrors it), `prototype/` (plain HTML/CSS/JS, no build; placeholders only)
 - `docs/technical/requirements-by-release.md` — guarantees G/SM/SV/AM/AV + the seam contract
 - `docs/technical/application-architecture.md` — App V1 end state: data model, modules, API
 - `docs/technical/azure-platform-and-costs.md` — hosting, costs, guardrails

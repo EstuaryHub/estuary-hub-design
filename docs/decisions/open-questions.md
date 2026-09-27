@@ -30,7 +30,7 @@ The earliest release each question holds up. Questions for Static MVP come first
 | Holds up | Product owners | Board | Technology team | Outside review / facts |
 | --- | --- | --- | --- | --- |
 | Product-owner review | P8 | — | — | — |
-| Static MVP build | P1, P9 | B1, B2, B3 (light-duty maintainer), B8, B10 | D3, D4, D7, D8, D11, D12 | X3, F4, F8 |
+| Static MVP build | P1, P9, P11, P12, P13 | B1, B2, B3 (light-duty maintainer), B8, B10 | D3, D4, D7, D8, D11, D12 | X3, F4, F8 |
 | Static MVP launch | P3, P5 | B4, B5, B7, B9 | — | X1, X2, F6 |
 | Static V1 | P2, P4 | — | — | F7 |
 | App MVP build | P6, P10 | B3 (long-term maintainer) | D1, D2, D5, D10 | F1, F2, F3 |
@@ -108,6 +108,24 @@ B3 has a fallback; the rebuild as a whole needs one too.
 - *If it meets its targets and a long-term maintainer exists, start App MVP.*
 - *If it meets its targets but nobody can commit to the application, stop at the static releases. They stand alone by design and are still better than today's site.*
 - *If the site itself cannot be kept running by a volunteer, return to improving Wix in place, as described under [B3](#b3-who-maintains-this-after-launch--blocking), and carry over the directory data and redirects.*
+
+### P11. Which of the wireframe's extra pages are in the Static MVP? — Blocking for Static MVP build
+
+The community's wireframe draws three pages the [Public Site](../product/static-site.md) function list does not include: **Conferences**, a general **Contact** page, and **Donate**. Each is small, but each adds something to keep up to date, and Donate needs a payment company and an account the nonprofit owns.
+
+*Recommended default: add Conferences and Contact to the Static MVP as new functions at the end of the list. Keep a Donate page, but have it send people to a payment company's own secure page; the site never handles card details. The board chooses the payment company and who holds the account, alongside [B2](#b2-who-owns-the-accounts--blocking).* See the [Visual Design Proposal](../product/visual-design-proposal.md#the-pages).
+
+### P12. Seven menu items or four? — Blocking for Static MVP build
+
+The wireframe's menu has seven items: Home, What is Estuary?, Sign Up, Conferences, Contact, Donate, Log in. The [Interface Design Brief](../product/interface-design-brief.md#information-architecture) proposes four destinations plus an account menu, with finding a group first. More items is familiar; fewer puts the directory in front of newcomers.
+
+*Recommended default: keep the wireframe's labels, but rename "Sign Up" to "Find a group" so the directory is named in the menu, and hide "Log in" until the App MVP exists.* The clickable example currently follows the wireframe as drawn, so the two can be compared.
+
+### P13. What leads the home page? — Blocking for Static MVP build
+
+The wireframe opens with a scrolling strip of photos and video stills. The brief's first principle is to answer "is there one near me" before anything else, and it rules out carousels.
+
+*Recommended default: the mission sentence, then the group search directly beneath it, with photos in a panel beside it that change only when the visitor presses the arrows.* This is what the [Visual Design Proposal](../product/visual-design-proposal.md#where-this-departs-from-the-wireframe-and-why) shows.
 
 ## For the board
 

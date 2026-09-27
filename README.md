@@ -55,8 +55,31 @@ The [question index](docs/decisions/open-questions.md#question-index) shows what
 3. [Application Architecture](docs/technical/application-architecture.md) and [Azure Platform and Costs](docs/technical/azure-platform-and-costs.md): the current proposal for meeting them
 4. [Open Questions: for the development team](docs/decisions/open-questions.md#for-the-development-team)
 
-**Designers:** [Interface Design Brief](docs/product/interface-design-brief.md), then the two product documents.
+**Designers:** [Interface Design Brief](docs/product/interface-design-brief.md), then the [Visual Design Proposal](docs/product/visual-design-proposal.md) and the [design folder](design/README.md), then the two product documents.
 
+## Repository map
+
+```text
+docs/
+  product/                        owned by the product owners
+    roadmap.md                    releases, order, success targets, launch comms, support model
+    static-site.md                Static MVP and Static V1 functions (S1–S18)
+    application.md                App MVP and App V1 functions (A1–A18)
+    discovery-interview-guide.md  five conversations to test the riskiest assumptions
+    interface-design-brief.md     experience, brand, accessibility, design deliverables
+    visual-design-proposal.md     colour, type, layout and pages, from the community wireframe
+  technical/                      owned by the Estuary Technology team
+    requirements-by-release.md    guarantees per release (G, SM, SV, AM, AV) and the seam contract
+    application-architecture.md   end-state data model, modules, API, non-functional requirements
+    azure-platform-and-costs.md   hosting, verified platform facts, costs, guardrails
+  decisions/                      shared
+    open-questions.md             live backlog: P, B, D, X questions and F facts
+    README.md                     decision register: resolved outcomes
+    delivery-checklist.md         prerequisites per release, with owners and evidence
+  superpowers/                    working records from design sessions (not authoritative)
+design/                           wireframe, design tokens, clickable prototype
+content/                          leader training manual
+```
 ## Project Tracking
 
 - [GitHub project board](https://github.com/orgs/EstuaryHub/projects/1)
