@@ -2,16 +2,19 @@
 
 Sep 26, 2026 · @joseph · Companion to the Interface Design Brief · A proposal, not yet reviewed
 
+**Colour and logo superseded, 18 Oct 2026.** The palette and the placeholder logo below are replaced by the [Design System](../../design/design-system.md), which takes its colours from the existing logo ([P14](../decisions/open-questions.md#p14-keep-the-existing-logo--decided), [P15](../decisions/open-questions.md#p15-take-the-colours-from-the-logo--decided)). The rest of this proposal still stands.
+
 ## Related Records
 
 - [Interface Design Brief](interface-design-brief.md) — the direction this proposal follows
 - [Public Site](static-site.md) — the functions (S1–S18) the pages serve
 - [Open Questions](../decisions/open-questions.md) — P11, P12 and P13 come from this proposal
+- [Design System](../../design/design-system.md) — the approved colours, logo, imagery and components that revise this proposal; P14–P18 come from it
 - [Design folder](../../design/README.md) — the source wireframe, the design values and the clickable example
 
 ## What this is
 
-The community's wireframe (`design/Estuarywebsite_wireframe.pdf`) sketches seven pages in black and white: Home, What is Estuary?, Sign Up, Conferences, Contact, Donate and Log In. It settles which pages exist and what goes on them. It does not settle colour, type or spacing.
+The community's wireframe (`design/Estuarywebsite_wireframe_latest.pdf`) sketches seven pages in black and white: Home, What is Estuary?, Sign Up, Conferences, Contact, Donate and Log In. It settles which pages exist and what goes on them. It does not settle colour, type or spacing.
 
 This proposal fills that in, following the brand direction in the [Interface Design Brief](interface-design-brief.md#brand-direction), and turns the wireframe into a clickable example that works on a phone and on a laptop. It covers the brief's design [phases](interface-design-brief.md#deliverables-and-phases) A and B, and part of C, for the light theme only.
 
@@ -23,22 +26,7 @@ An estuary is where fresh water meets salt. The pages sit on a cool, very pale b
 
 ## Colour
 
-Every text colour was checked against the background it sits on. All pass the accessibility standard the brief sets (4.5 to 1 for text, 3 to 1 for controls).
-
-| Name | Value | Used for | Contrast |
-| --- | --- | --- | --- |
-| Ground | #F3F7F7 | Page background | Text on it 14.0 : 1 |
-| Surface | #FFFFFF | Cards, header, form fields | Text on it 15.1 : 1 |
-| Ink | #0F2A2E | Text; the footer | — |
-| Ink muted | #4A6462 | Secondary text | 5.9 : 1 on ground |
-| Tidal teal | #1B6B67 | Links, main buttons, map pins | 5.8 : 1 on ground; white on it 6.3 : 1 |
-| Deep teal | #14524F | Buttons when pressed or hovered | White on it 8.9 : 1 |
-| Teal mist | #E1EEEC | Badges, the selected group | Deep teal on it 7.5 : 1 |
-| Field edge | #7F9795 | Outlines of boxes you type into | 3.1 : 1 |
-| Silt | #B8914A | Logo and decoration only — never text | 2.7 : 1 |
-| Silt mist | #EFE3C8 | Welcome bands and the "nothing nearby" invitation | Text on it 11.9 : 1 |
-| Silt deep | #80601F | Small warm labels above headings | 5.8 : 1 on white |
-| Success, warning, danger | #2E6B45, #8A5A00, #A4281F | Status messages only, always with a word or symbol too | 6.4, 5.9 and 7.2 : 1 on white |
+The colour values now live in the [Design System's colour section](../../design/design-system.md#colour), so each value has one home. They were replaced on 18 Oct 2026 by a palette taken from the logo: navy and reed green in place of teal and silt ([P15](../decisions/open-questions.md#p15-take-the-colours-from-the-logo--decided)).
 
 ## Type
 

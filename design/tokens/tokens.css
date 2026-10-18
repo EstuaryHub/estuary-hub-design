@@ -1,37 +1,38 @@
 /*
- * Estuary design tokens — proposal, 26 Sep 2026.
+ * Estuary design tokens — 18 Oct 2026, per design/design-system.md.
  * Source of truth for colour, type, space and shape. tokens.json mirrors
  * these values; change both together. Contrast ratios are WCAG 2.1,
  * computed against the background named in each comment.
+ * Palette comes from the logo: estuary navy #012D4B and reed green #7F991D.
  */
 :root {
   /* Ground and ink */
-  --color-ground: #F3F7F7;        /* page background */
+  --color-ground: #F5F8FA;        /* page background */
   --color-surface: #FFFFFF;       /* cards, header, fields */
-  --color-ink: #0F2A2E;           /* text; 14.0:1 on ground */
-  --color-ink-muted: #4A6462;     /* secondary text; 5.9:1 on ground */
-  --color-line: #C9D8D6;          /* dividers, card edges; decorative only */
-  --color-field-edge: #7F9795;    /* input outlines; 3.1:1 on surface */
+  --color-mist: #E4EDF2;          /* alternate bands, selected rows; navy on it 12.0:1 */
+  --color-ink: #0E2236;           /* body text; 16.1:1 on white, 15.1:1 on ground */
+  --color-ink-muted: #4B5E6E;     /* secondary text; 6.7:1 on white */
+  --color-line: #CBD8E0;          /* dividers, card edges; decorative only */
+  --color-field-edge: #7D8F9C;    /* input outlines; 3.3:1 on white */
 
-  /* Primary accent: tidal teal */
-  --color-teal: #1B6B67;          /* links, primary buttons, pins; 5.8:1 on ground, white on it 6.3:1 */
-  --color-teal-deep: #14524F;     /* hover, pressed; white on it 8.9:1 */
-  --color-teal-mist: #E1EEEC;     /* badges, selected rows; teal-deep on it 7.5:1 */
+  /* Primary: estuary navy (logo) */
+  --color-navy: #012D4B;          /* headings, primary buttons, header, footer, focus; 14.2:1 on white, white on it 14.2:1 */
+  --color-navy-hover: #0A3D63;    /* primary hover; white on it 11.3:1 */
+  --color-navy-pressed: #00213A;  /* primary pressed; white on it 16.4:1 */
+  --color-link: #1D5A85;          /* channel blue, links in running text; 7.4:1 on white */
 
-  /* Warm accent: silt. Sparingly, for welcome moments only */
-  --color-silt: #B8914A;          /* decoration only (logo, halos); 2.7:1, never text */
-  --color-silt-mist: #EFE3C8;     /* welcome bands, empty-state invitation; ink on it 11.9:1 */
-  --color-silt-deep: #80601F;     /* warm eyebrow text; 5.8:1 on white */
+  /* Accent: reed green (logo). Sparingly */
+  --color-reed: #7F991D;          /* logo, rules, map pins; 3.2:1, never text or a fill behind text */
+  --color-reed-deep: #4E5F12;     /* eyebrows, welcome button; 7.1:1 on white, white on it 7.1:1 */
+  --color-reed-mist: #EEF2DA;     /* welcome bands, empty-state invitation; ink on it 14.1:1 */
 
-  /* Dark band (footer, notices) */
-  --color-deep: #0F2A2E;
-  --color-on-deep: #D6E4E2;       /* 11.5:1 on deep */
-  --color-on-deep-muted: #9DB5B2; /* 7.0:1 on deep */
-  --color-deep-rule: #2B4A4E;
-  --color-teal-on-deep: #5FA8A2;  /* logo on dark only */
-  --color-silt-on-deep: #D9B97A;  /* logo and icons on dark only */
+  /* On navy (header band, footer) */
+  --color-on-navy: #C9DCEA;       /* 10.1:1 on navy */
+  --color-on-navy-muted: #A6B8C6; /* 7.9:1 on navy */
+  --color-navy-rule: #1F4766;     /* rules on navy */
+  --color-reed-on-navy: #B5CC55;  /* logo accent and focus ring on navy; 7.9:1 */
 
-  /* Status only; never used as the brand accent */
+  /* Status only; never used as a brand colour */
   --color-success: #2E6B45;       /* 6.4:1 on white */
   --color-warning: #8A5A00;       /* 5.9:1 on white */
   --color-danger: #A4281F;        /* 7.2:1 on white */
@@ -41,12 +42,15 @@
   --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
-  --text-display: 3.5rem;   /* 56, line-height 1.1, weight 500 */
-  --text-h2: 2.25rem;       /* 36, 1.2, 500 */
-  --text-h3: 1.5rem;        /* 24, 1.3, 600 */
+  --text-display: 3.5rem;   /* 56 (36 on phones), line-height 1.1, weight 500 */
+  --text-h1: 2.75rem;       /* 44 (32 on phones), 1.15, 500; every page except home */
+  --text-h2: 2.25rem;       /* 36 (28), 1.2, 500 */
+  --text-h3: 1.5rem;        /* 24 (22), 1.3, 600 */
   --text-lede: 1.25rem;     /* 20, 1.6 */
   --text-body: 1.125rem;    /* 18, 1.6; never below 16px */
-  --text-small: 0.9375rem;  /* 15, 1.5 */
+  --text-control: 1.0625rem;/* 17, buttons, labels, inputs (stops iOS zoom) */
+  --text-small: 0.9375rem;  /* 15, 1.5; small bold is 15/700/1.4 */
+  --text-eyebrow: 0.875rem; /* 14, bold, capitals, 0.08em tracking, reed-deep */
   --text-data: 0.875rem;    /* 14, mono, admin and data only */
   --leading-tight: 1.1;
   --leading-heading: 1.2;
@@ -69,7 +73,7 @@
   --radius-card: 16px;
   --radius-panel: 24px;
   --radius-pill: 999px;
-  --shadow-raised: 0 8px 24px rgba(15, 42, 46, 0.08);
+  --shadow-raised: 0 8px 24px rgba(1, 45, 75, 0.08);
 
   /* Layout */
   --container: 1120px;
@@ -77,5 +81,14 @@
   --page-margin: 16px;      /* phone; 80px from 1024px up */
   --target-min: 44px;       /* minimum touch target */
   --control-height: 48px;
-  --focus-ring: 3px solid var(--color-teal);
+  --focus-ring: 3px solid var(--color-navy);
 }
+
+/*
+ * Dark theme values (design-system.md#dark-theme), not wired in yet: the
+ * prototype still hard-codes white on primary buttons. Ground #081C2C,
+ * surface #0F2A3F, raised #163651, line #2A4A62, field edge #6F8BA0,
+ * ink #E6EEF3, ink muted #A6B8C6, link #8CC4E8, primary #B5CC55 with
+ * #081C2C text, reed mist #25331A, success #7FC79A, warning #E2B35C,
+ * danger #F08A80. tokens.json carries them under color.dark.
+ */
