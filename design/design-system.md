@@ -180,12 +180,14 @@ The Brief requires both themes to be checked before the Static MVP build.
 | Role | Typeface | Size and weight | Line height |
 | --- | --- | --- | --- |
 | Display (home heading only) | Newsreader | 56 px laptop / 36 px phone, 500 | 1.1 |
+| Heading 1 (every page except home) | Newsreader | 44 / 32 px, 500 | 1.15 |
 | Heading 2 | Newsreader | 36 / 28 px, 500 | 1.2 |
 | Heading 3 | Newsreader | 24 / 22 px, 600 | 1.3 |
 | Eyebrow (small label above a heading) | Atkinson Hyperlegible | 14 px, 700, capitals, 0.08 em spacing, reed deep | 1.4 |
 | Lede (first paragraph) | Atkinson Hyperlegible | 20 px, 400 | 1.6 |
 | Body | Atkinson Hyperlegible | 18 px, 400; never below 16 | 1.6 |
 | Small, help text | Atkinson Hyperlegible | 15 px, 400 | 1.5 |
+| Small bold (chips, badges, short labels) | Atkinson Hyperlegible | 15 px, 700 | 1.4 |
 | Buttons, labels | Atkinson Hyperlegible | 17 px, 700, sentence case, no letter-spacing | 1.2 |
 | Data (admin tables only) | IBM Plex Mono | 14 px | 1.5 |
 
@@ -258,7 +260,8 @@ The Brief's [component inventory](../docs/product/interface-design-brief.md#comp
 
 - Navy background with reversed logo.
 - Columns: Find a group, Learn, Get involved, About.
-- Language switch (English, Deutsch), the line "Estuary is a 501(c)(3) nonprofit", and a link to report a problem.
+- Language switch (English, Deutsch), the line "Estuary is a 501(c)(3) nonprofit", and links to the privacy and accessibility statements (S12).
+- Links go only to pages that exist in the current release; on phones each link row is at least 44 px tall.
 - Text #C9DCEA (10.1 : 1 on navy); links underlined.
 
 ### Buttons
@@ -355,6 +358,10 @@ Full-width bands alternate ground and mist backgrounds to separate sections with
 - Name, email and message, and a line saying who receives it and that your email stays private until they reply.
 - Shows the limit on how many messages can be sent, plainly, before anyone hits it.
 
+### Release tag (annotation only)
+
+A purple dashed tag ("Static V1", "App MVP" and so on) placed on a design board beside anything that arrives after the Static MVP. It's never part of the interface, and purple is reserved for it.
+
 ## Motion and interaction
 
 - Transitions are 150–200 ms, ease-out, and limited to colour, shadow and opacity. Nothing slides or bounces.
@@ -364,7 +371,7 @@ Full-width bands alternate ground and mist backgrounds to separate sections with
 
 ## Applying this to the wireframes
 
-The community wireframe now lives in the shared design file, one page per screen (Home, What is Estuary?, Sign Up, Conferences, Contact, Donate, Log In/Members). Once this draft is approved, the redraw goes in this order:
+The community wireframe now lives in the shared design file, one page per screen (Home, What is Estuary?, Sign Up, Conferences, Contact, Donate, Log In/Members). The redraw added pages the wireframe doesn't have: Group page (S4, S5, S18), Update your group (S9) and Start a group (S7). The redraw went in this order:
 
 1. **Set up the library:** the colours, type styles and components above, built once in the design file and named as here.
 2. **Redraw page by page:** Home first, since it holds the location search and the empty state, then Sign Up, What is Estuary?, Contact, Conferences, Donate, Log In/Members. Each page gets a phone (375 px) and laptop (1440 px) version, with its states (empty, error, long content) drawn alongside.

@@ -43,12 +43,13 @@
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
   --text-display: 3.5rem;   /* 56 (36 on phones), line-height 1.1, weight 500 */
+  --text-h1: 2.75rem;       /* 44 (32 on phones), 1.15, 500; every page except home */
   --text-h2: 2.25rem;       /* 36 (28), 1.2, 500 */
   --text-h3: 1.5rem;        /* 24 (22), 1.3, 600 */
   --text-lede: 1.25rem;     /* 20, 1.6 */
   --text-body: 1.125rem;    /* 18, 1.6; never below 16px */
   --text-control: 1.0625rem;/* 17, buttons, labels, inputs (stops iOS zoom) */
-  --text-small: 0.9375rem;  /* 15, 1.5 */
+  --text-small: 0.9375rem;  /* 15, 1.5; small bold is 15/700/1.4 */
   --text-eyebrow: 0.875rem; /* 14, bold, capitals, 0.08em tracking, reed-deep */
   --text-data: 0.875rem;    /* 14, mono, admin and data only */
   --leading-tight: 1.1;
