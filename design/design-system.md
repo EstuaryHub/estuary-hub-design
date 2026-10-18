@@ -106,6 +106,15 @@ Each has a recommended default. Once decided they move to [Open Questions](../do
 4. **Keep the type pairing from the proposal (Newsreader and Atkinson Hyperlegible).** *Recommended: yes.* It keeps the current site's serif-plus-sans structure while fixing legibility. Caudex has only two weights and no optical sizing, and Avenir is a paid licence.
 5. **Keep "converZations" in the tagline only.** *Recommended: yes.* It's a brand signature, but in headings and buttons it reads as a typo and trips screen readers.
 
+## Decisions after the V2 review
+
+An independent review of the V2 wireframe raised two conflicts between this page and the boards. The product owner decided both on 18 Oct 2026:
+
+1. **Header button.** "Find a group" in the header is a secondary (outlined) button on every page and is hidden on Home and Sign up, so each view has one navy action. Alternatives considered: keeping it navy and exempting the header, or turning it into a navigation item.
+2. **Reed green.** The "one reed element per screen" rule is relaxed. Reed-deep eyebrows and other small accents may appear on every section, but at most one reed-mist band or panel per page. Alternatives considered: limiting reed to brand moments only, or keeping the strict rule.
+
+Both are reflected in [Colour › Rules](#rules), [Header and navigation](#header-and-navigation) and the boards. They should be recorded in the decision register alongside P14–P18.
+
 ## Brand
 
 ### Logo
@@ -169,8 +178,8 @@ The Brief requires both themes to be checked before the Static MVP build.
 
 ### Rules
 
-- **One main action per view, in navy.** Secondary actions are outlined in navy; tertiary actions are plain underlined links.
-- **Reed green is a highlight, not a workhorse.** At most one reed element per screen besides the logo: a welcome band, a map pin, a rule under a heading.
+- **One main action per view, in navy.** Secondary actions are outlined in navy; tertiary actions are plain underlined links. The header's "Find a group" button is always secondary, so it never competes with the page's own action ([decided 18 Oct 2026](#decisions-after-the-v2-review)).
+- **Reed green is an accent, not a workhorse.** Small reed touches are fine anywhere: reed-deep eyebrow labels above headings, map pins, the current-page marker, quote marks and footer headings. Large reed areas are rationed: at most one reed-mist band or panel per page, kept for the welcome or "start a group" invitation or the empty state ([decided 18 Oct 2026](#decisions-after-the-v2-review)). Reed is never used for text in running copy or for a button fill other than the welcome button.
 - **Status colours never double as brand colours.** Success green and reed green don't appear side by side without a label.
 - **Colour is never the only signal.** Every status has a word or symbol.
 - **No pure black and no pure white text on photos.**
@@ -251,7 +260,7 @@ The Brief's [component inventory](../docs/product/interface-design-brief.md#comp
 
 - White surface, 1 px line at the bottom, 72 px tall on a laptop and 64 px on a phone. Logo on the left.
 - Menu items in Atkinson 17 px navy. The current page is marked with a 3 px reed green underline and its name is announced to screen readers. Colour is not the only signal.
-- One navy button at the right for the main action ("Find a group").
+- A secondary (outlined) "Find a group" button at the right. It's hidden on the home page and the finder, where the search is already on screen.
 - "Log in" is a plain link to its left, with a person icon.
 - Phone: logo plus a "Menu" button that opens a full-height panel. Items are 56 px tall, and the main action sits at the top.
 - The number of items is open in [P12](../docs/decisions/open-questions.md#p12-seven-menu-items-or-four--blocking-for-static-mvp-build). The component works for four or seven.
