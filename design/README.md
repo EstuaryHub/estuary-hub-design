@@ -4,7 +4,8 @@ Visual design for the public site: the community's wireframe, the design values,
 
 | Path | What it is |
 | --- | --- |
-| `Estuarywebsite_wireframe.pdf` | The community's black-and-white wireframe: seven pages, no colour or type |
+| `Estuarywebsite_wireframe_latest.pdf` | The community's black-and-white wireframe: seven pages, no colour or type |
+| `design-system.md` | Design system for the rebuild: brand, colour, type, imagery and components, based on an audit of the current site. Approved 18 Oct 2026 |
 | `tokens/tokens.css` | Colour, type, spacing, radius and layout values as CSS custom properties. The source of truth |
 | `tokens/tokens.json` | The same values as JSON for tools. Change both files together |
 | `prototype/` | Clickable example of all seven pages plus `foundations.html` (the style guide), in plain HTML, CSS and JavaScript |
