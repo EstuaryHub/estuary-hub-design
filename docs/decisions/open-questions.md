@@ -37,6 +37,8 @@ The earliest release each question holds up. Questions for Static MVP come first
 | App MVP launch | — | — | D6, D9 | — |
 | App V1 | P7 | B6 | — | — |
 
+Decided and no longer holding anything up: P14–P18. Each keeps its question below, with a link to the [Decision Register](README.md#resolved-decisions).
+
 ## For the product owners
 
 Settled by Estuary leadership and community members. Record each outcome in the [Decision Register](README.md).
@@ -126,6 +128,46 @@ The wireframe's menu has seven items: Home, What is Estuary?, Sign Up, Conferenc
 The wireframe opens with a scrolling strip of photos and video stills. The brief's first principle is to answer "is there one near me" before anything else, and it rules out carousels.
 
 *Recommended default: the mission sentence, then the group search directly beneath it, with photos in a panel beside it that change only when the visitor presses the arrows.* This is what the [Visual Design Proposal](../product/visual-design-proposal.md#where-this-departs-from-the-wireframe-and-why) shows.
+
+### P14. Keep the existing logo? — Decided
+
+The current site's logo is a navy "Estuary Hub" wordmark whose "s" is a green river channel ending in a small crayfish. The Visual Design Proposal's example used a placeholder instead: two overlapping circles. The community already recognises the existing logo, but it exists online only as a picture file, with no original drawing found.
+
+*Recommended default: keep the existing logo and drop the placeholder. Ask leadership for the original drawing; failing that, have the wordmark redrawn without changing it.* See the [Design System](../../design/design-system.md#logo).
+
+**Decided 18 Oct 2026:** yes, as recommended. See the [Decision Register](README.md#resolved-decisions).
+
+### P15. Take the colours from the logo? — Decided
+
+The Visual Design Proposal chose a new tidal teal and a sandy "silt". The current logo already has two colours, a deep navy and a reed green, and they carry the same idea of fresh water meeting the sea.
+
+*Recommended default: take the palette from the logo, navy #012D4B and reed green #7F991D, in place of teal and silt. Every value passes the brief's contrast standard in both light and dark themes. The Design System's colour section becomes the one home for the values.* See the [Design System](../../design/design-system.md#colour).
+
+**Decided 18 Oct 2026:** yes, as recommended. See the [Decision Register](README.md#resolved-decisions).
+
+### P16. May estuary landscape photos be used? — Decided
+
+The [Interface Design Brief](../product/interface-design-brief.md#brand-direction) says "no river photography". The current site depends on landscape photos, and they are the cheapest pictures the project already owns.
+
+*Recommended default: yes, as a secondary kind of picture only. Landscapes never sit behind text and never stand in for photos of people in conversation, which lead. The one exception is the home page heading, on a dark wash that keeps the text readable.* See the [Design System](../../design/design-system.md#imagery).
+
+**Decided 18 Oct 2026:** yes, as recommended. See the [Decision Register](README.md#resolved-decisions).
+
+### P17. Keep the proposal's two typefaces? — Decided
+
+The current site uses five typefaces, with a thin body text that is hard to read. The Visual Design Proposal chose Newsreader for headings and Atkinson Hyperlegible, drawn for low-vision readers, for everything else. That keeps the current site's serif-plus-plain pairing.
+
+*Recommended default: keep Newsreader and Atkinson Hyperlegible. Both are free; the current site's heading face has only two weights, and its body face needs a paid licence.* See the [Design System](../../design/design-system.md#type).
+
+**Decided 18 Oct 2026:** yes, as recommended. See the [Decision Register](README.md#resolved-decisions).
+
+### P18. Where does "converZations" appear? — Decided
+
+The current tagline is "A place for meaningful converZations", with a deliberate capital Z, and the spelling also heads the video section. It is a brand signature, but in headings and buttons it reads as a typo and confuses screen readers.
+
+*Recommended default: in the tagline only, marked up so screen readers say "conversations".* See the [Design System](../../design/design-system.md#tagline).
+
+**Decided 18 Oct 2026:** yes, as recommended. See the [Decision Register](README.md#resolved-decisions).
 
 ## For the board
 
