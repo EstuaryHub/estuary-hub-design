@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Estuary Hub Wireframe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
+<style>
+/* Layout: a navy bar like the site's own header; an overview of every screen,
+   then a walkthrough with screens on the left, the board in the middle and
+   the designer's review notes on the right. Colours from design/tokens/tokens.css. */
+:root {
+  --ground: #F5F8FA;
+  --surface: #FFFFFF;
+  --mist: #E4EDF2;
+  --stage: #DCE6EC;
+  --ink: #0E2236;
+  --muted: #4B5E6E;
+  --line: #CBD8E0;
+  --heading: #012D4B;
+  --link: #1D5A85;
+  --accent: #012D4B;
+  --on-accent: #FFFFFF;
+  --eyebrow: #4E5F12;
+  --reed: #7F991D;
+  --reed-mist: #EEF2DA;
+  --v1: #5B3A99;
+  --v1-bg: #EFE8FA;
+  --bar: #012D4B;
+  --on-bar: #C9DCEA;
+  --on-bar-strong: #FFFFFF;
+  --bar-rule: #1F4766;
+  --bar-hover: #0A3D63;
+  --bar-focus: #B5CC55;
+  --shadow: 0 8px 24px rgba(1, 45, 75, 0.10);
+
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+
+  --rail: 264px;
+  --notes: 340px;
+  --bar-h: 60px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #081C2C; --surface: #0F2A3F; --mist: #163651; --stage: #06141F;
+    --ink: #E6EEF3; --muted: #A6B8C6; --line: #2A4A62; --heading: #E6EEF3;
+    --link: #8CC4E8; --accent: #B5CC55; --on-accent: #081C2C; --eyebrow: #B5CC55;
+    --reed: #B5CC55; --reed-mist: #25331A; --v1: #CDB8F2; --v1-bg: #2E2346;
+    --bar: #051522; --on-bar: #C9DCEA; --on-bar-strong: #FFFFFF; --bar-rule: #1F4766;
+    --bar-hover: #0F2A3F; --bar-focus: #B5CC55; --shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #081C2C; --surface: #0F2A3F; --mist: #163651; --stage: #06141F;
+  --ink: #E6EEF3; --muted: #A6B8C6; --line: #2A4A62; --heading: #E6EEF3;
+  --link: #8CC4E8; --accent: #B5CC55; --on-accent: #081C2C; --eyebrow: #B5CC55;
+  --reed: #B5CC55; --reed-mist: #25331A; --v1: #CDB8F2; --v1-bg: #2E2346;
+  --bar: #051522; --on-bar: #C9DCEA; --on-bar-strong: #FFFFFF; --bar-rule: #1F4766;
+  --bar-hover: #0F2A3F; --bar-focus: #B5CC55; --shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--ground);
+  color: var(--ink);
+  font: 400 16px/1.55 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+button { font: inherit; color: inherit; }
+a { color: var(--link); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- Bar ---------- */
+.bar {
+  flex: none;
+  min-height: var(--bar-h);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: var(--bar);
+  color: var(--on-bar);
+  border-bottom: 1px solid var(--bar-rule);
+}
+.bar :focus-visible { outline-color: var(--bar-focus); }
+.brand {
+  display: flex; align-items: baseline; gap: 10px;
+  color: var(--on-bar-strong); text-decoration: none; white-space: nowrap;
+}
+.brand-mark { font: 600 1.375rem/1 var(--font-display); }
+.brand-mark span { color: var(--bar-focus); }
+.brand-sub { font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-bar); }
+.where { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 10px; overflow: hidden; }
+.where-page { font: 500 1.125rem/1.2 var(--font-display); color: var(--on-bar-strong); white-space: nowrap; }
+.where-board { color: var(--on-bar); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tools { display: flex; align-items: center; gap: 6px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  min-height: 40px; padding: 0 12px;
+  border: 1px solid var(--bar-rule); border-radius: 999px;
+  background: transparent; color: var(--on-bar-strong);
+  font-size: 0.9375rem; font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.btn:hover { background: var(--bar-hover); }
+.btn[aria-pressed="true"] { background: var(--on-bar-strong); color: var(--bar); border-color: var(--on-bar-strong); }
+.btn.icon { width: 40px; padding: 0; justify-content: center; font-size: 1.25rem; line-height: 1; }
+.btn:disabled { opacity: 0.4; cursor: default; background: transparent; }
+.count { min-width: 64px; text-align: center; font-variant-numeric: tabular-nums; color: var(--on-bar-strong); font-weight: 700; }
+
+/* ---------- Overview ---------- */
+.overview { flex: 1; min-height: 0; overflow: auto; }
+.ov-inner {
+  max-width: 1320px; margin: 0 auto;
+  padding-block: 40px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: end; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0 0 8px; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--eyebrow); }
+.intro h1 { margin: 0; font: 500 clamp(2rem, 4vw, 3rem)/1.1 var(--font-display); color: var(--heading); text-wrap: balance; }
+.intro p { margin: 12px 0 0; max-width: 62ch; color: var(--muted); font-size: 1.0625rem; }
+.start {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 22px;
+  border-radius: 999px; background: var(--accent); color: var(--on-accent);
+  font-weight: 700; font-size: 1.0625rem; text-decoration: none; white-space: nowrap;
+}
+.keys { margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: 0.875rem; }
+kbd {
+  display: inline-block; min-width: 1.6em; padding: 1px 6px; margin-right: 4px;
+  border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px;
+  background: var(--surface); color: var(--ink); font: 700 0.8125rem/1.4 var(--font-body); text-align: center;
+}
+.group-head { margin: 48px 0 0; font: 600 0.875rem/1.3 var(--font-body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.page-sec { padding-top: 28px; }
+.page-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px; margin-bottom: 14px; }
+.page-head h2 { margin: 0; font: 500 1.75rem/1.2 var(--font-display); color: var(--heading); }
+.page-head .n { color: var(--muted); font-size: 0.9375rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; }
+.card {
+  display: flex; flex-direction: column; min-width: 0;
+  border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  background: var(--surface); color: var(--ink); text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.thumb { aspect-ratio: 4 / 3; background: var(--mist); display: flex; justify-content: center; overflow: hidden; border-bottom: 1px solid var(--line); }
+.thumb img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.thumb.phone img { width: auto; height: 100%; max-width: 100%; object-fit: contain; object-position: top; box-shadow: 0 0 0 1px var(--line); }
+.card-body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 6px; }
+.card-label { font-weight: 700; line-height: 1.3; }
+.card-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; color: var(--muted); font-size: 0.8125rem; }
+
+.chip {
+  display: inline-flex; align-items: center; min-height: 22px; padding: 0 9px;
+  border-radius: 999px; font-size: 0.75rem; font-weight: 700; white-space: nowrap;
+  background: var(--mist); color: var(--ink);
+}
+.chip.mvp { background: var(--reed-mist); color: var(--eyebrow); }
+.chip.v1 { background: var(--v1-bg); color: var(--v1); }
+.chip.app { background: var(--accent); color: var(--on-accent); }
+.chip.scope { background: transparent; color: var(--muted); box-shadow: inset 0 0 0 1px var(--line); }
+
+/* ---------- Walkthrough ---------- */
+.viewer {
+  flex: 1; min-height: 0;
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr) var(--notes);
+  grid-template-areas: "rail stage notes";
+}
+.viewer.no-notes { grid-template-columns: var(--rail) minmax(0, 1fr); grid-template-areas: "rail stage"; }
+.rail { grid-area: rail; overflow: auto; border-right: 1px solid var(--line); background: var(--surface); padding: 16px 10px 32px; }
+.rail-group { margin: 18px 8px 6px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.rail-group:first-child { margin-top: 2px; }
+.rail-page { margin: 10px 8px 2px; font: 600 1rem/1.3 var(--font-display); color: var(--heading); }
+.rail a {
+  display: block; padding: 5px 8px 5px 18px; border-radius: 8px;
+  color: var(--ink); text-decoration: none; font-size: 0.875rem; line-height: 1.35;
+}
+.rail a:hover { background: var(--mist); }
+.rail a[aria-current="true"] { background: var(--accent); color: var(--on-accent); font-weight: 700; }
+
+.stage { grid-area: stage; overflow: auto; background: var(--stage); position: relative; outline: none; }
+.frame { display: flex; justify-content: center; align-items: flex-start; padding: 28px 28px 56px; min-height: 100%; }
+.shot {
+  display: block; height: auto; background: var(--surface);
+  border-radius: 6px; box-shadow: var(--shadow);
+}
+.fit-width .shot.laptop { width: 100%; max-width: 1440px; }
+.fit-width .shot.phone { width: 414px; max-width: 100%; }
+.fit-whole .frame { height: 100%; min-height: 0; padding-bottom: 28px; }
+.fit-whole .shot { width: auto; max-height: 100%; }
+.stage-nav {
+  position: sticky; bottom: 16px; float: right; margin: -64px 16px 0 0;
+  display: flex; gap: 8px;
+}
+.stage-nav button {
+  width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); font-size: 1.25rem; cursor: pointer; box-shadow: var(--shadow);
+}
+.stage-nav button:disabled { opacity: 0.4; cursor: default; }
+
+.notes { grid-area: notes; overflow: auto; border-left: 1px solid var(--line); background: var(--surface); padding: 22px 22px 40px; }
+.viewer.no-notes .notes { display: none; }
+.notes h2 { margin: 0; font: 500 1.625rem/1.2 var(--font-display); color: var(--heading); text-wrap: balance; }
+.notes .board-name { margin: 6px 0 0; font-weight: 700; }
+.notes .facts { margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; color: var(--muted); font-size: 0.875rem; font-variant-numeric: tabular-nums; }
+.notes .siblings { margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+.notes .siblings a {
+  display: inline-block; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line);
+  color: var(--ink); text-decoration: none; font-size: 0.8125rem;
+}
+.notes .siblings a[aria-current="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 700; }
+.notes h3.sec { margin: 26px 0 0; padding-top: 18px; border-top: 1px solid var(--line); font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--eyebrow); }
+.notes dl { margin: 0; }
+.notes dt { margin-top: 14px; font-weight: 700; color: var(--heading); }
+.notes dd { margin: 3px 0 0; color: var(--ink); font-size: 0.9375rem; line-height: 1.55; }
+
+/* ---------- Narrow screens ---------- */
+@media (max-width: 1180px) {
+  .viewer, .viewer.no-notes { grid-template-columns: minmax(0, 1fr); grid-template-areas: "stage"; position: relative; }
+  .rail, .notes { position: absolute; top: 0; bottom: 0; z-index: 5; width: min(340px, 90%); box-shadow: var(--shadow); }
+  .rail { left: 0; display: none; }
+  .notes { right: 0; }
+  .viewer.show-rail .rail { display: block; }
+}
+@media (min-width: 1181px) {
+  #railBtn { display: none; }
+}
+@media (max-width: 760px) {
+  .brand-sub, .where, .only-wide { display: none; }
+  .bar { gap: 8px; flex-wrap: wrap; padding-block: 8px; }
+  .btn { min-height: 36px; padding: 0 10px; font-size: 0.875rem; }
+  .btn.icon { width: 36px; }
+  .count { min-width: 52px; }
+  .tools { margin-left: auto; flex-wrap: wrap; justify-content: flex-end; }
+  .intro { grid-template-columns: minmax(0, 1fr); }
+  .frame { padding: 16px 12px 48px; }
+  .cards { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+  .card:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a class="brand" href="#overview" title="All screens">
+    <span class="brand-mark">Estuary <span>Hub</span></span>
+    <span class="brand-sub">Website wireframe</span>
+  </a>
+  <div class="where" id="where" aria-live="polite">
+    <span class="where-page" id="wherePage"></span>
+    <span class="where-board" id="whereBoard"></span>
+  </div>
+  <div class="tools">
+    <button class="btn" id="railBtn" type="button" aria-pressed="false" hidden>Screens</button>
+    <button class="btn" id="overviewBtn" type="button">All screens</button>
+    <button class="btn icon" id="prevBtn" type="button" aria-label="Previous screen">‹</button>
+    <span class="count" id="count"></span>
+    <button class="btn icon" id="nextBtn" type="button" aria-label="Next screen">›</button>
+    <button class="btn only-wide" id="fitBtn" type="button" aria-pressed="false" title="Show the whole screen at once (F)">Whole screen</button>
+    <button class="btn" id="notesBtn" type="button" aria-pressed="true" title="Designer's notes (N)">Notes</button>
+  </div>
+</header>
+
+<main class="overview" id="overview" tabindex="-1">
+  <div class="ov-inner">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">For the board · Web UI Wireframe V2</p>
+        <h1>Every screen in the new website wireframe</h1>
+        <p id="introText"></p>
+        <div class="keys">
+          <span><kbd>←</kbd><kbd>→</kbd>previous / next screen</span>
+          <span><kbd>⇧</kbd>+<kbd>←</kbd><kbd>→</kbd>previous / next page</span>
+          <span><kbd>F</kbd>whole screen</span>
+          <span><kbd>N</kbd>notes</span>
+          <span><kbd>Esc</kbd>all screens</span>
+        </div>
+      </div>
+      <a class="start" id="startLink" href="#">Start the walkthrough →</a>
+    </section>
+    <div id="groups"></div>
+  </div>
+</main>
+
+<main class="viewer fit-width" id="viewer" hidden>
+  <nav class="rail" id="rail" aria-label="Screens"></nav>
+  <div class="stage" id="stage" tabindex="0" aria-label="Wireframe screen">
+    <div class="frame"><img class="shot" id="shot" alt=""></div>
+    <div class="stage-nav">
+      <button type="button" id="stagePrev" aria-label="Previous screen">‹</button>
+      <button type="button" id="stageNext" aria-label="Next screen">›</button>
+    </div>
+  </div>
+  <aside class="notes" id="notes" aria-label="Notes"></aside>
+</main>
+
+<script>
+/* Boards exported from the Penpot file "Web UI Wireframe V2". Review notes are
+   the text of each page's "Review notes" board in that file. */
+const GROUPS = [
+  { name: 'Public site, no sign-in', pages: ['home', 'what', 'signup', 'group', 'start', 'update', 'conf', 'contact', 'donate'] },
+  { name: 'Signed in (App releases)', pages: ['members'] },
+  { name: 'Design system', pages: ['foundations'] },
+];
+
+const PAGES = {
+  home: {
+    title: 'Home', release: ['mvp', 'Static MVP'],
+    boards: [['home-laptop', 'Home — Laptop', 1440, 4008], ['home-phone', 'Home — Phone', 375, 5098], ['home-phone-menu-open', 'Home — Phone, menu open', 375, 812]],
+    notes: [
+      ['Follows the community wireframe', 'Mission sentence, "What is Estuary?" and "Sign up" actions, image area, future section for quotes and partner logos, footer.'],
+      ['Search comes first (P13)', 'The location search sits in the hero, above the fold. The wireframe opened with a scrolling photo strip.'],
+      ['No carousel', 'The wireframe’s image scroll and rotating quotes become a still photo and a still grid (Brief: no carousels).'],
+      ['Added from the Brief', 'Three facts about what a meeting is like, the two existing explainer videos, and an invitation to start a group.'],
+      ['Navigation (P12)', 'Keeps the wireframe’s items (Home is the logo). The header works with four items as well.'],
+      ['Placeholders', 'Anything in [square brackets] is for Estuary leadership to write or confirm. Grey panels are photo placeholders: real photos, with consent.'],
+      ['States drawn', 'Laptop 1440, phone 375, and phone with the menu open. The empty search result is drawn with the Sign up page, where results appear.'],
+    ],
+  },
+  what: {
+    title: 'What is Estuary?', release: ['mvp', 'Static MVP'],
+    boards: [['what-is-estuary-laptop', 'What is Estuary? — Laptop', 1440, 3656], ['what-is-estuary-phone', 'What is Estuary? — Phone', 375, 4528]],
+    notes: [
+      ['Follows the community wireframe', 'Both passages with photos ("What is Estuary?" and "Why participate"), the common questions, the Sign up and Become a leader buttons, and the promo video.'],
+      ['Wording', 'The two passages are the wireframe’s own text, lightly edited for reading on screen. Only the section headings are new.'],
+      ['Common questions', 'The five drafted in the earlier proposal, plus one from the current site about languages. Answers in [square brackets] are for leadership to write. Several can be open at once; without scripting all answers show.'],
+      ['Added from the proposal', 'The leader training manual download, offered as US Letter and A4 (Brief: UX copy), and both existing videos instead of one.'],
+      ['Photos', 'Grey panels are placeholders for real photos of groups, used with consent. No stock photos of strangers.'],
+      ['States drawn', 'Laptop with the first question open; phone with the second open, so both states show.'],
+    ],
+  },
+  signup: {
+    title: 'Sign up', release: ['mvp', 'Static MVP'],
+    boards: [
+      ['sign-up-laptop', 'Sign up — Laptop', 1440, 2713],
+      ['sign-up-phone', 'Sign up — Phone', 375, 3627],
+      ['sign-up-laptop-nothing-nearby-static-mvp', 'Sign up — Laptop, nothing nearby (Static MVP)', 1440, 1891],
+      ['sign-up-phone-nothing-nearby-static-mvp', 'Sign up — Phone, nothing nearby (Static MVP)', 375, 2571],
+      ['sign-up-laptop-nothing-nearby-static-v1', 'Sign up — Laptop, nothing nearby (Static V1)', 1440, 2292],
+      ['sign-up-phone-nothing-nearby-static-v1', 'Sign up — Phone, nothing nearby (Static V1)', 375, 2880],
+    ],
+    notes: [
+      ['Follows the community wireframe', 'Why join, why become a leader, the group finder with a map, and the leader and training buttons.'],
+      ['Finder moved up', 'The search and results come straight after a short “why join” intro. The leader invitation follows the results.'],
+      ['List and map (Brief: key screen 2)', 'Laptop: list beside the map. Phone: list first with a List / Map toggle. Filters start with nothing chosen, so the results show every format.'],
+      ['Nothing nearby, Static MVP (S3)', 'Leads with the closest group and its real distance, then a path to starting one. The map zooms out to show it beside the search radius.'],
+      ['Nothing nearby, Static V1 (S13, S14)', 'Adds a trained leader nearby and “Get updates for this area”, each with a purple Static V1 tag.'],
+      ['Privacy promise', 'No email addresses or phone numbers anywhere; group cards show the town only.'],
+      ['States drawn', 'Laptop and phone: results, nothing nearby (Static MVP), nothing nearby (Static V1). Not yet drawn: the phone map view.'],
+    ],
+  },
+  group: {
+    title: 'Group page', release: ['mvp', 'Static MVP'],
+    boards: [
+      ['group-page-laptop', 'Group page — Laptop', 1440, 1591],
+      ['group-page-laptop-contact-form', 'Group page — Laptop, contact form', 1440, 1591],
+      ['group-page-laptop-message-sent', 'Group page — Laptop, message sent', 1440, 1591],
+      ['group-page-laptop-message-limit-reached', 'Group page — Laptop, message limit reached', 1440, 1721],
+      ['group-page-phone-long-directions', 'Group page — Phone, long directions', 375, 2972],
+      ['group-page-phone-contact-form', 'Group page — Phone, contact form', 375, 3077],
+      ['report-a-problem-laptop', 'Report a problem — Laptop', 1440, 1608],
+      ['report-a-problem-laptop-sent', 'Report a problem — Laptop, sent', 1440, 1035],
+      ['report-a-problem-phone', 'Report a problem — Phone', 375, 2022],
+    ],
+    notes: [
+      ['What this is (S4)', 'A page for every group, with its own address. Most newcomers will arrive here from a search engine, so it stands on its own: name, when, where, language, directions, a small map and one Contact action.'],
+      ['Where (S4)', 'The page shows the venue and town. The street address appears only if the leader chooses to publish it; otherwise the leader shares it when they reply.'],
+      ['Private contact (S5)', 'The form sends the message to the leader; the leader’s address never appears. After sending: “Sent. [First name] will reply to you directly.” Sending is limited to [3] messages a day, and the limit is explained before anyone reaches it.'],
+      ['Report a problem (S18)', 'Every group page links to a short report form that goes to administrators, not the leader. Drawn with its sent state.'],
+      ['How groups relate to Estuary (B9)', 'A plain panel whose wording waits on the board’s answer to B9.'],
+      ['Tagged for later', '“Listing confirmed” is S16, a Static V1 Should, and carries a purple Static V1 tag.'],
+      ['States drawn', 'Laptop: default, contact form, sent, limit reached. Phone: long directions (400 characters) and contact form. Report a problem: laptop form, sent, phone.'],
+    ],
+  },
+  start: {
+    title: 'Start a group', release: ['mvp', 'Static MVP'],
+    boards: [['start-a-group-laptop', 'Start a group — Laptop', 1440, 2751], ['start-a-group-phone', 'Start a group — Phone', 375, 3949]],
+    notes: [
+      ['What this is (S7)', 'One path that replaces the current site’s two signup pages: what leading involves, what ELSNet is, the four stages (applied, invited, training, listed), then the application.'],
+      ['Who replies', 'In the Static releases the form goes by email to the ELSNet coordinator, and the page says who will contact the applicant and roughly when. From App MVP, applicants track their stage in their account (A6).'],
+      ['Placeholders', 'Time commitment, ELSNet description, coordinator and timings are in [square brackets] for leadership to write.'],
+      ['States drawn', 'Laptop and phone. Not yet drawn: the sent confirmation and the error state.'],
+    ],
+  },
+  update: {
+    title: 'Update your group', release: ['mvp', 'Static MVP'],
+    boards: [['update-your-group-laptop', 'Update your group — Laptop', 1440, 3056], ['update-your-group-laptop-hand-over', 'Update your group — Laptop, hand over', 1440, 2446], ['update-your-group-phone', 'Update your group — Phone', 375, 3762]],
+    notes: [
+      ['What this is (S9)', 'One public form, with no sign-in, for every change to a listing: update, add, hand over or close. It replaces the current site’s separate Add and Edit forms.'],
+      ['Nothing goes live unchecked', 'Every request goes to an administrator, who checks and publishes it. The page says how long that usually takes (P3, still to decide).'],
+      ['Street address', 'Private by default; a checkbox lets the leader show it on the group page (S4).'],
+      ['Hand over', 'The new leader is asked to confirm before anything changes. A closed group is paused, never deleted.'],
+      ['Later', 'Once App MVP is live, leaders sign in and edit directly (A3); the signed-in version is on the Log In/Members page.'],
+      ['States drawn', 'Laptop: update and hand over. Phone: update.'],
+    ],
+  },
+  conf: {
+    title: 'Conferences', release: ['scope', 'Scope decided by P11'],
+    boards: [
+      ['conferences-laptop', 'Conferences — Laptop', 1440, 1900],
+      ['conferences-laptop-nothing-scheduled-upcoming-section', 'Conferences — Laptop, nothing scheduled (upcoming section)', 1440, 571],
+      ['conferences-laptop-application-form', 'Conferences — Laptop, application form', 1440, 2069],
+      ['conferences-laptop-application-sent-form-area', 'Conferences — Laptop, application sent (form area)', 1440, 451],
+      ['conferences-phone', 'Conferences — Phone', 375, 2775],
+    ],
+    notes: [
+      ['Follows the community wireframe', 'Conference partnerships intro, "Want to feature Estuary at your event?" with the application button, and the list of upcoming conferences.'],
+      ['Scope (P11)', 'Conferences isn’t in the agreed function list yet. P11 decides whether this page is in the Static MVP.'],
+      ['Upcoming conferences', 'Each card gives the date, place, what Estuary is doing there, and a link to the conference’s own site. All values in [square brackets] are made up.'],
+      ['The application form', 'The wireframe links to a separate form. It’s drawn here as its own page, with "About you" and "About your event" sections, and replaced by a confirmation once sent.'],
+      ['Nothing scheduled', 'If no conferences are listed, the section invites organisers to get in touch instead of showing an empty grid.'],
+      ['States drawn', 'Laptop and phone; laptop application form; application sent; nothing scheduled.'],
+    ],
+  },
+  contact: {
+    title: 'Contact', release: ['scope', 'Scope decided by P11'],
+    boards: [
+      ['contact-laptop', 'Contact — Laptop', 1440, 1629],
+      ['contact-laptop-errors', 'Contact — Laptop, errors', 1440, 1815],
+      ['contact-laptop-message-sent-form-area', 'Contact — Laptop, message sent (form area)', 1440, 434],
+      ['contact-phone', 'Contact — Phone', 375, 2460],
+    ],
+    notes: [
+      ['Follows the community wireframe', 'Contact us, "What is this about?" with the wireframe’s topics, your name, and the thank-you message, which now replaces the form once it’s sent.'],
+      ['Topic as a short list', 'The wireframe’s drop-down becomes four visible choices, since there are only four. "Finding or joining a group" is added, as it’s the most common reason to write.'],
+      ['Scope (P11)', 'Contact isn’t in the agreed function list yet. P11 decides whether this page is in the Static MVP.'],
+      ['No email address shown', 'In line with the contact-relay promise, the page never shows an email address or phone number. "Before you write" points people to the finder, to private group contact, and to reporting a problem.'],
+      ['Errors', 'A summary at the top lists what to fix and links to each field; each field says how to fix it and keeps what was typed.'],
+      ['States drawn', 'Laptop, phone, laptop with errors, and message sent.'],
+    ],
+  },
+  donate: {
+    title: 'Donate', release: ['scope', 'Scope decided by P11'],
+    boards: [
+      ['donate-laptop', 'Donate — Laptop', 1440, 1763],
+      ['donate-laptop-thank-you-after-payment', 'Donate — Laptop, thank you (after payment)', 1440, 1058],
+      ['donate-phone-monthly', 'Donate — Phone, monthly', 375, 2611],
+    ],
+    notes: [
+      ['Follows the community wireframe', 'Thank-you message, PayPal, Venmo and Google Pay, a monthly-gift option, and a message for special instructions.'],
+      ['Changed: no card form on our site (P11)', 'The wireframe draws a credit card form. Instead, people choose an amount and how often, then finish on the payment company’s secure page. A site with no sign-in should never handle card numbers.'],
+      ['Thank you', 'The wireframe’s "Thank You!" becomes the page people return to after paying, with their receipt details and a way back to finding a group.'],
+      ['Amounts and impact', 'Amounts are examples. The line under them says what a gift does, and leadership should write it, as with the "Where your gift goes" panel and the tax note.'],
+      ['Scope (P11)', 'Donate isn’t in the agreed function list yet. P11 decides whether this page is in the Static MVP.'],
+      ['States drawn', 'Laptop (one-off gift), phone (monthly gift), and thank you after payment.'],
+    ],
+  },
+  members: {
+    title: 'Log In / Members', release: ['app', 'App MVP and App V1'],
+    boards: [
+      ['members-laptop-sign-in', 'Members — Laptop, sign in', 1440, 1321],
+      ['members-laptop-overview-leader', 'Members — Laptop, overview (leader)', 1440, 1507],
+      ['members-phone-overview-leader', 'Members — Phone, overview (leader)', 375, 2490],
+      ['members-laptop-your-group-leader', 'Members — Laptop, your group (leader)', 1440, 1734],
+      ['members-laptop-your-group-not-in-a-group-yet', 'Members — Laptop, your group (not in a group yet)', 1440, 1180],
+      ['members-laptop-messages', 'Members — Laptop, messages', 1440, 1351],
+      ['members-laptop-resources', 'Members — Laptop, resources', 1440, 1636],
+      ['members-laptop-profile-and-privacy-first-visit', 'Members — Laptop, profile and privacy (first visit)', 1440, 1785],
+      ['members-laptop-register-a-group', 'Members — Laptop, register a group', 1440, 3024],
+    ],
+    notes: [
+      ['Follows the community wireframe', 'The wireframe’s five member screens are all here: personal info (Profile and privacy), Estuary group info (Your group), send a message (Messages), resources (Resources), and find or register a group (Register a group, with finding linked to the public finder).'],
+      ['A preview of the App releases', 'None of this is in the Static MVP. Sign-in arrives with App MVP; the sign-in method is a technical decision still to make.'],
+      ['Account menu, not tabs', 'The wireframe’s tabs become a labelled sidebar on laptop and a "Your account" menu on phone (Brief: account is a menu, not a section). Every item is written out; nothing is icon-only.'],
+      ['Leader first', 'The overview opens with the one-click "Is your listing still right?" check (Brief: key screen 5), then the next ELSNet call and new messages.'],
+      ['Privacy in words', 'Each detail says who can see it, in plain words, and starts private. Messages go through the site; email addresses stay hidden unless someone chooses to share theirs. Participant lists are for leaders only.'],
+      ['Regular users', 'Someone who isn’t a leader sees the same menu, minus the leader-only parts (participants, confirming a listing, messaging the whole group). Drawn: the "not in a group yet" state.'],
+      ['Placeholders', 'Names, dates, topics and counts in [square brackets] are made up.'],
+      ['States drawn', 'Sign in; overview (laptop and phone); your group (leader, and not in a group yet); messages; resources; profile and privacy; register a group.'],
+    ],
+  },
+  foundations: {
+    title: 'Foundations & components', release: ['scope', 'Design system'],
+    boards: [['foundations', 'Foundations', 1440, 2694], ['components', 'Components', 1601, 7097]],
+    notes: [
+      ['What this is', 'The colours, type, spacing and shared parts every screen above is built from. It follows the approved design system (design/design-system.md).'],
+    ],
+  },
+};
+
+/* ---------- Model ---------- */
+const BOARDS = [];
+for (const g of GROUPS) for (const key of g.pages) {
+  const p = PAGES[key];
+  p.key = key; p.group = g.name; p.first = BOARDS.length;
+  p.boards.forEach(([slug, name, w, h], i) => {
+    const tags = [...name.matchAll(/\((Static MVP|Static V1)\)/g)].map(m => m[1]);
+    const short = name.includes(' — ') ? name.split(' — ').slice(1).join(' — ') : name;
+    BOARDS.push({
+      slug, name, w, h, page: p, indexInPage: i, tags,
+      label: short.replace(/\s*\((Static MVP|Static V1)\)/g, '').trim(),
+      prefix: name.includes(' — ') ? name.split(' — ')[0] : '',
+      phone: w < 600,
+    });
+  });
+}
+const BY_SLUG = Object.fromEntries(BOARDS.map((b, i) => [b.slug, i]));
+const PAGE_LIST = GROUPS.flatMap(g => g.pages.map(k => PAGES[k]));
+
+/* ---------- Helpers ---------- */
+const $ = id => document.getElementById(id);
+function el(tag, attrs = {}, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === 'class') n.className = v;
+    else if (k === 'text') n.textContent = v;
+    else n.setAttribute(k, v);
+  }
+  for (const k of kids) if (k != null) n.append(k);
+  return n;
+}
+function chip(kind, text) { return el('span', { class: 'chip ' + kind, text }); }
+function tagChip(t) { return chip(t === 'Static V1' ? 'v1' : 'mvp', t); }
+// Board label as shown in lists: keep the board's own prefix only when it differs from the page title.
+// Lists and the header keep the release tag in the text, since two boards can differ only by it.
+function fullLabel(b, withTags = true) {
+  const base = b.prefix && b.prefix !== b.page.title && !b.page.title.startsWith(b.prefix) && b.page.key !== 'members'
+    ? `${b.prefix}: ${b.label}` : b.label;
+  return withTags && b.tags.length ? `${base} (${b.tags.join(', ')})` : base;
+}
+
+/* ---------- Overview ---------- */
+const nPhones = BOARDS.filter(b => b.phone).length;
+$('introText').textContent =
+  `${BOARDS.length} screens across ${PAGE_LIST.length} pages, exported from Penpot: ` +
+  `${BOARDS.length - nPhones} laptop (1440 wide) and ${nPhones} phone (375 wide). ` +
+  `Anything in [square brackets] is a placeholder for Estuary leadership to write. ` +
+  `Choose any screen, or start at the beginning.`;
+$('startLink').href = '#' + BOARDS[0].slug;
+
+const groupsEl = $('groups');
+for (const g of GROUPS) {
+  groupsEl.append(el('h2', { class: 'group-head', text: g.name }));
+  for (const key of g.pages) {
+    const p = PAGES[key];
+    const cards = el('div', { class: 'cards' });
+    p.boards.forEach((_, i) => {
+      const b = BOARDS[p.first + i];
+      const meta = el('div', { class: 'card-meta' },
+        el('span', { text: b.phone ? 'Phone' : 'Laptop' }), ...b.tags.map(tagChip));
+      cards.append(el('a', { class: 'card', href: '#' + b.slug },
+        el('div', { class: 'thumb' + (b.phone ? ' phone' : '') },
+          el('img', { src: 'thumbs/' + b.slug + '.png', alt: '', loading: 'lazy', decoding: 'async' })),
+        el('div', { class: 'card-body' }, el('span', { class: 'card-label', text: fullLabel(b, false) }), meta)));
+    });
+    groupsEl.append(el('section', { class: 'page-sec', id: 'page-' + key },
+      el('div', { class: 'page-head' },
+        el('h2', { text: p.title }),
+        chip(p.release[0], p.release[1]),
+        el('span', { class: 'n', text: `${p.boards.length} screen${p.boards.length > 1 ? 's' : ''}` })),
+      cards));
+  }
+}
+
+/* ---------- Rail ---------- */
+const rail = $('rail');
+for (const g of GROUPS) {
+  rail.append(el('div', { class: 'rail-group', text: g.name }));
+  for (const key of g.pages) {
+    const p = PAGES[key];
+    rail.append(el('div', { class: 'rail-page', text: p.title }));
+    p.boards.forEach((_, i) => {
+      const b = BOARDS[p.first + i];
+      rail.append(el('a', { href: '#' + b.slug, 'data-slug': b.slug, text: fullLabel(b) }));
+    });
+  }
+}
+
+/* ---------- Walkthrough ---------- */
+const viewer = $('viewer'), overview = $('overview'), stage = $('stage'), shot = $('shot');
+let current = -1;
+
+function preload(i) {
+  if (i >= 0 && i < BOARDS.length) { const im = new Image(); im.src = 'boards/' + BOARDS[i].slug + '.png'; }
+}
+
+function renderNotes(b) {
+  const p = b.page, notes = $('notes');
+  notes.replaceChildren(
+    el('p', { class: 'eyebrow', text: p.group }),
+    el('h2', { text: p.title }),
+    el('p', { class: 'board-name', text: fullLabel(b, false) }),
+    el('div', { class: 'facts' },
+      chip(p.release[0], p.release[1]), ...b.tags.map(tagChip),
+      el('span', { text: `${b.phone ? 'Phone' : 'Laptop'} · ${b.w} × ${b.h}` })),
+  );
+  if (p.boards.length > 1) {
+    const sib = el('ul', { class: 'siblings', 'aria-label': 'Screens on this page' });
+    p.boards.forEach((_, i) => {
+      const s = BOARDS[p.first + i];
+      const a = el('a', { href: '#' + s.slug, text: fullLabel(s) });
+      if (s === b) a.setAttribute('aria-current', 'true');
+      sib.append(el('li', {}, a));
+    });
+    notes.append(el('h3', { class: 'sec', text: `On this page · ${b.indexInPage + 1} of ${p.boards.length}` }), sib);
+  }
+  const dl = el('dl');
+  for (const [t, d] of p.notes) dl.append(el('dt', { text: t }), el('dd', { text: d }));
+  notes.append(el('h3', { class: 'sec', text: p.key === 'foundations' ? 'About this page' : 'Designer’s review notes' }), dl);
+}
+
+function showBoard(i) {
+  const b = BOARDS[i];
+  const changed = i !== current;
+  current = i;
+  overview.hidden = true;
+  viewer.hidden = false;
+  $('where').hidden = false;
+  shot.className = 'shot ' + (b.phone ? 'phone' : 'laptop');
+  shot.width = b.w; shot.height = b.h;
+  shot.alt = `Wireframe: ${b.name}`;
+  shot.src = 'boards/' + b.slug + '.png';
+  $('wherePage').textContent = b.page.title;
+  $('whereBoard').textContent = fullLabel(b);
+  $('count').textContent = `${i + 1} / ${BOARDS.length}`;
+  for (const id of ['prevBtn', 'stagePrev']) $(id).disabled = i === 0;
+  for (const id of ['nextBtn', 'stageNext']) $(id).disabled = i === BOARDS.length - 1;
+  rail.querySelectorAll('a').forEach(a => {
+    if (a.dataset.slug === b.slug) { a.setAttribute('aria-current', 'true'); a.scrollIntoView({ block: 'nearest' }); }
+    else a.removeAttribute('aria-current');
+  });
+  renderNotes(b);
+  if (changed) { stage.scrollTop = 0; stage.scrollLeft = 0; }
+  viewer.classList.remove('show-rail'); $('railBtn').setAttribute('aria-pressed', 'false');
+  document.title = `${b.name} · Estuary Hub Wireframe`;
+  preload(i + 1); preload(i - 1);
+}
+
+function showOverview(scrollToKey) {
+  viewer.hidden = true;
+  overview.hidden = false;
+  $('where').hidden = true;
+  $('count').textContent = `${BOARDS.length} screens`;
+  $('prevBtn').disabled = true; $('nextBtn').disabled = false;
+  document.title = 'Estuary Hub Wireframe';
+  const target = scrollToKey && document.getElementById('page-' + scrollToKey);
+  if (target) target.scrollIntoView({ block: 'start' });
+  overview.focus({ preventScroll: true });
+}
+
+function route() {
+  const slug = decodeURIComponent(location.hash.slice(1));
+  if (slug in BY_SLUG) { showBoard(BY_SLUG[slug]); stage.focus({ preventScroll: true }); }
+  else showOverview(current >= 0 ? BOARDS[current].page.key : null);
+}
+function go(i) {
+  i = Math.max(0, Math.min(BOARDS.length - 1, i));
+  location.hash = BOARDS[i].slug;
+}
+function goPage(delta) {
+  const pi = PAGE_LIST.indexOf(BOARDS[current].page) + delta;
+  if (pi >= 0 && pi < PAGE_LIST.length) go(PAGE_LIST[pi].first);
+}
+function inViewer() { return !viewer.hidden; }
+
+$('prevBtn').onclick = $('stagePrev').onclick = () => inViewer() && go(current - 1);
+$('nextBtn').onclick = $('stageNext').onclick = () => inViewer() ? go(current + 1) : go(0);
+$('overviewBtn').onclick = () => { location.hash = 'overview'; };
+
+function setFit(whole) {
+  viewer.classList.toggle('fit-whole', whole);
+  viewer.classList.toggle('fit-width', !whole);
+  $('fitBtn').setAttribute('aria-pressed', String(whole));
+}
+function setNotes(on) {
+  viewer.classList.toggle('no-notes', !on);
+  $('notesBtn').setAttribute('aria-pressed', String(on));
+}
+$('fitBtn').onclick = () => setFit(!viewer.classList.contains('fit-whole'));
+$('notesBtn').onclick = () => setNotes(viewer.classList.contains('no-notes'));
+$('railBtn').onclick = () => {
+  const on = viewer.classList.toggle('show-rail');
+  $('railBtn').setAttribute('aria-pressed', String(on));
+};
+// The Screens button is only needed when the rail collapses.
+const narrow = matchMedia('(max-width: 1180px)');
+function syncNarrow() {
+  $('railBtn').hidden = !narrow.matches;
+  if (narrow.matches) setNotes(false);
+}
+narrow.addEventListener('change', syncNarrow);
+syncNarrow();
+
+document.addEventListener('keydown', e => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.target.closest && e.target.closest('input, textarea, select')) return;
+  const k = e.key;
+  if (k === 'Escape') {
+    if (viewer.classList.contains('show-rail')) $('railBtn').click();
+    else if (inViewer()) location.hash = 'overview';
+    return;
+  }
+  if (!inViewer()) {
+    if (k === 'ArrowRight' && !e.shiftKey) { e.preventDefault(); go(0); }
+    return;
+  }
+  if (k === 'ArrowRight' || k === 'ArrowLeft') {
+    e.preventDefault();
+    const d = k === 'ArrowRight' ? 1 : -1;
+    e.shiftKey ? goPage(d) : go(current + d);
+  } else if (k === 'f' || k === 'F') setFit(!viewer.classList.contains('fit-whole'));
+  else if (k === 'n' || k === 'N') setNotes(viewer.classList.contains('no-notes'));
+  else if (k === 'Home') { e.preventDefault(); go(0); }
+  else if (k === 'End') { e.preventDefault(); go(BOARDS.length - 1); }
+});
+
+window.addEventListener('hashchange', route);
+route();
+</script>
+</body>
+</html>

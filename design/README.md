@@ -9,6 +9,7 @@ Visual design for the public site: the community's wireframe, the design values,
 | `tokens/tokens.css` | Colour, type, spacing, radius and layout values as CSS custom properties. The source of truth |
 | `tokens/tokens.json` | The same values as JSON for tools. Change both files together |
 | `prototype/` | Clickable example of all seven pages plus `foundations.html` (the style guide), in plain HTML, CSS and JavaScript |
+| `board-demo/` | Board presentation of the Penpot wireframe ("Web UI Wireframe V2"): every screen as an image, with the designer's review notes. Open `board-demo/index.html` in a browser. `boards/` and `thumbs/` are exports from Penpot; re-export them when the Penpot file changes |
 
 ## Viewing the prototype
 
