@@ -23,6 +23,14 @@ python3 -m http.server 8000
 
 Serve from `design/`, not `design/prototype/`, because the pages load `../tokens/tokens.css`.
 
+To run it in the background instead, use the helper script from anywhere in the repo (set `PORT` to change the port):
+
+```sh
+scripts/prototype.sh start   # then open http://localhost:8000/prototype/
+scripts/prototype.sh status
+scripts/prototype.sh stop
+```
+
 Views the pages don't reach by clicking:
 
 - `prototype/sign-up.html?results=none#find` shows the "nothing nearby yet" results

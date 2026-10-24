@@ -79,13 +79,12 @@ docs/
   superpowers/                    working records from design sessions (not authoritative)
 design/                           wireframe, design tokens, clickable prototype
 content/                          leader training manual
+scripts/                          helper scripts (prototype.sh serves the prototype in the background)
 ```
 ## Project Tracking
 
-- [GitHub project board](https://github.com/orgs/EstuaryHub/projects/1)
+- [GitHub project board](https://github.com/orgs/EstuaryHub/projects/2)
 - [Repository issue tracker](https://github.com/EstuaryHub/estuary-hub-design/issues)
-
-The ten proposed issues in [the issue drafts](sessions/build_issues.md) have not yet been created in GitHub.
 
 ## Repository Index
 
@@ -112,7 +111,7 @@ The ten proposed issues in [the issue drafts](sessions/build_issues.md) have not
 ### Reference Materials
 
 - [Leader Training Manual](content/LeaderTrainingManual_USLetter.pdf)
-- [Estuary Website Wireframe](design/Estuarywebsite_wireframe.pdf)
+- [Estuary Website Wireframe](design/Estuarywebsite_wireframe_latest.pdf)
 
 ### Working Records
 
@@ -120,7 +119,6 @@ These records document planning work and are not authoritative product or techni
 
 - [Documentation organization design](docs/superpowers/specs/2026-09-26-documentation-organization-design.md)
 - [Documentation organization plan](docs/superpowers/plans/2026-09-26-documentation-organization.md)
-- [GitHub issue drafts](sessions/build_issues.md): proposed issue titles, labels and descriptions
 - [Project context and repository conventions](CLAUDE.md)
 
 ## How a decision moves
