@@ -1,0 +1,8 @@
+PK,ELSNet_Meeting_ID,int,NOT NULL
+FK,Leader_Profile_ID,int,NOT NULL
+,When,varchar(500),NOT NULL
+,URL,varchar(500),NOT NULL
+,Special_Directions,varchar(max),
+,isActive,bit,NOT NULL
+,Time_Stamp,datetime,NOT NULL
+,Mod_By,varchar(100),NOT NULL
