@@ -23,7 +23,7 @@ python3 -m http.server 8000
 
 Serve from `design/`, not `design/prototype/`, because the pages load `../tokens/tokens.css`.
 
-To run it in the background instead, use the helper script from anywhere in the repo (set `PORT` to change the port):
+To run it in the background instead, return to the repository root and use the helper script (set `PORT` to change the port; from elsewhere, call it by its full path):
 
 ```sh
 scripts/prototype.sh start   # then open http://localhost:8000/prototype/
