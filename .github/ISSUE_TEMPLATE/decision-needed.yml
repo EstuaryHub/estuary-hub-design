@@ -22,13 +22,6 @@ body:
       label: The question
     validations:
       required: true
-  - type: textarea
-    id: default
-    attributes:
-      label: Recommended default
-      description: Every question needs a recommended default per the open-questions.md convention
-    validations:
-      required: true
   - type: input
     id: release
     attributes:
