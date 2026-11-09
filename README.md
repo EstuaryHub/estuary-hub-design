@@ -94,7 +94,7 @@ A maintainer triages each `needs-triage` issue:
 
 1. Rewrite the title as a plain statement of the need or question, with no `[Prefix]:`.
 2. If it is already a tracked question, link its ID in [Open Questions](docs/decisions/open-questions.md) (P, B, D, X or F). If it is a new question, add who decides it, a recommended default and the release it holds up (Static MVP, Static V1, App MVP, App V1 or none).
-3. Swap `needs-triage` for the labels that fit: `question` and `decision-needed` for decisions, `documentation` and `bug` for doc errors, or the area labels (`frontend`, `backend`, `privacy` and so on) for build work.
+3. Swap `needs-triage` for the labels that fit: `question` and `decision` for decisions, `documentation` and `bug` for doc errors, or the area labels (`frontend`, `backend`, `privacy` and so on) for build work. Use `governance` for organizational matters, including board decisions; there is no separate `board` label.
 4. Close it as a duplicate if it is already covered elsewhere, and link the original.
 
 A decision issue then follows [How a decision moves](#how-a-decision-moves).
