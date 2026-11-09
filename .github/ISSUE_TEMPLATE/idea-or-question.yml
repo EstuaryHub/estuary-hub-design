@@ -1,0 +1,44 @@
+name: Share an idea or question
+description: Suggest something the site should do, or ask something that needs deciding
+labels: ["needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Plain language is fine. You don't need to know which document or release this belongs to;
+        a maintainer will sort that out when they triage it.
+  - type: textarea
+    id: need
+    attributes:
+      label: What's the idea or question?
+      description: Describe the need, not the solution, if you can.
+    validations:
+      required: true
+  - type: textarea
+    id: who
+    attributes:
+      label: Who does it help?
+      description: For example, people looking for a group, group leaders, conference organizers, administrators.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does it matter?
+      description: What happens today without it? Any evidence, such as how often it comes up?
+    validations:
+      required: false
+  - type: input
+    id: where
+    attributes:
+      label: Related page or document (optional)
+      description: A link or a short description is enough.
+    validations:
+      required: false
+  - type: checkboxes
+    id: public
+    attributes:
+      label: This issue is public
+      options:
+        - label: I haven't included anyone's name, email, phone number, location or interview notes.
+          required: true

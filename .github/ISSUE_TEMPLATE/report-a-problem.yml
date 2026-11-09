@@ -1,0 +1,32 @@
+name: Report a problem
+description: Something is wrong, broken or out of date in the docs, designs or prototype
+labels: ["needs-triage"]
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Where is it?
+      description: A link, file and section, or a short description of the page.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong?
+      description: What is incorrect, broken or out of date?
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: What should it be? (optional)
+      description: Leave blank if you're not sure.
+    validations:
+      required: false
+  - type: checkboxes
+    id: public
+    attributes:
+      label: This issue is public
+      options:
+        - label: I haven't included anyone's name, email, phone number, location or interview notes.
+          required: true

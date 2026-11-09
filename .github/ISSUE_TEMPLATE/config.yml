@@ -6,3 +6,6 @@ contact_links:
   - name: Discovery Interview Guide
     url: https://github.com/EstuaryHub/estuary-hub-design/blob/main/docs/product/discovery-interview-guide.md
     about: Read before recording a discovery finding
+  - name: How issues are triaged
+    url: https://github.com/EstuaryHub/estuary-hub-design#raising-and-triaging-an-issue
+    about: What happens after you open an issue
