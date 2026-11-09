@@ -1,7 +1,7 @@
 name: Discovery interview finding
 description: Capture a distilled finding from a discovery conversation
 title: "[Discovery]: "
-labels: ["discovery"]
+labels: ["discovery", "needs-triage"]
 body:
   - type: markdown
     attributes:
@@ -22,3 +22,10 @@ body:
       description: Which open question or doc should this feed into?
     validations:
       required: false
+  - type: checkboxes
+    id: public
+    attributes:
+      label: This issue is public
+      options:
+        - label: I haven't included anyone's name, email, phone number, location or interview notes.
+          required: true

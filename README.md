@@ -86,6 +86,19 @@ scripts/                          helper scripts (prototype.sh serves the protot
 - [GitHub project board](https://github.com/orgs/EstuaryHub/projects/2)
 - [Repository issue tracker](https://github.com/EstuaryHub/estuary-hub-design/issues)
 
+### Raising and triaging an issue
+
+Anyone can open an issue with one of three forms: **Share an idea or question**, **Report a problem**, or **Discovery interview finding**. The forms ask only for the need, who it helps and where it applies. Every new issue gets the `needs-triage` label. Issues are public, so never include anyone's name, email, phone number, location or interview notes.
+
+A maintainer triages each `needs-triage` issue:
+
+1. Rewrite the title as a plain statement of the need or question, with no `[Prefix]:`.
+2. If it is already a tracked question, link its ID in [Open Questions](docs/decisions/open-questions.md) (P, B, D, X or F). If it is a new question, add who decides it, a recommended default and the release it holds up (Static MVP, Static V1, App MVP, App V1 or none).
+3. Swap `needs-triage` for the labels that fit: `question` and `decision-needed` for decisions, `documentation` and `bug` for doc errors, or the area labels (`frontend`, `backend`, `privacy` and so on) for build work.
+4. Close it as a duplicate if it is already covered elsewhere, and link the original.
+
+A decision issue then follows [How a decision moves](#how-a-decision-moves).
+
 ## Repository Index
 
 ### Product Design
